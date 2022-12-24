@@ -8,12 +8,12 @@ public class TestArraysForBubbleSort {
         products[3]="bb";
         int length=products.length;
         int count=0;
-        for (int i=0; i<length ;i++) {
-            for (int j=0;j<length;j++){
-                if(products[i].compareTo(products[j])<0){
-                    String aux=products[i];
-                    products[i]=products[j];
-                    products[j]=aux;
+        for (int i=0; i<length-1 ;i++) {
+            for (int j=0;j<length-1-i;j++){
+                if(products[j+1].compareTo(products[j])<0){
+                    String aux=products[j];
+                    products[j]=products[j+1];
+                    products[j+1]=aux;
                 }
                 count++;
             }
