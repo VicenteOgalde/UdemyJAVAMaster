@@ -6,8 +6,12 @@ public class Car {
     private String color;
     private double cc;
     private int gasCapacity;
+    private static int numberOfWheels=4;
+    private int id;
+    private static int lastId;
 
     public Car(String company, String model) {
+        this();
         this.company = company;
         this.model = model;
     }
@@ -17,7 +21,7 @@ public class Car {
     }
 
     public Car() {
-
+        this.id=++lastId;
     }
 
     public String getCompany() {
@@ -62,13 +66,29 @@ public class Car {
 
     @Override
     public boolean equals(Object obj) {
-        Car car= (Car) obj;
-        if(this.getCompany()== car.getCompany()&&
-        this.getModel()==car.getModel()){
-            return true;
+        if(obj instanceof Car) {
+            Car car = (Car) obj;
+            if (this.getCompany() == car.getCompany() &&
+                    this.getModel() == car.getModel()) {
+                return true;
+            } else {
+                return false;
+            }
         }else{
             return false;
         }
+    }
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id='" + id + '\'' +
+                "company='" + company + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", number of wheels='" + Car.numberOfWheels + '\'' +
+                ", cc=" + cc +
+                ", gasCapacity=" + gasCapacity +
+                '}';
     }
 }
