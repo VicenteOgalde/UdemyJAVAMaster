@@ -11,6 +11,10 @@ public class Car {
         this.company = company;
         this.model = model;
     }
+    public Car(String company, String model,String color){
+        this(company,model);//using the other constructor
+        this.color=color;
+    }
 
     public Car() {
 
@@ -54,5 +58,17 @@ public class Car {
 
     public void setGasCapacity(int gasCapacity) {
         this.gasCapacity = gasCapacity;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Car car= (Car) obj;
+        if(this.getCompany()== car.getCompany()&&
+        this.getModel()==car.getModel()){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 }

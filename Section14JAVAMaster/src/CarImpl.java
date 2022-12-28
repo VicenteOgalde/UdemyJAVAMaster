@@ -3,8 +3,11 @@ public class CarImpl {
 
     Car car= new Car();
     Car car2 = new Car("mazda","gt1");
+    car.setCompany("mazda");
+    car.setModel("gt1");
 
-        System.out.println("car.color = " + car.getColor());
+        System.out.println("override method equals= "+car.equals(car2));
+        System.out.println("== by reference "+(car==car2));
 
 
 
