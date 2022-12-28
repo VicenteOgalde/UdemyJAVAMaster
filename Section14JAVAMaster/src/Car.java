@@ -3,10 +3,10 @@ public class Car {
 
     private String company;
     private String model;
-    private String color;
+    private Color color;
     private double cc;
     private int gasCapacity;
-    private static int numberOfWheels=4;
+    private final static int numberOfWheels=4;
     private int id;
     private static int lastId;
 
@@ -15,7 +15,7 @@ public class Car {
         this.company = company;
         this.model = model;
     }
-    public Car(String company, String model,String color){
+    public Car(String company, String model,Color color){
         this(company,model);//using the other constructor
         this.color=color;
     }
@@ -40,11 +40,11 @@ public class Car {
         this.model = model;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
