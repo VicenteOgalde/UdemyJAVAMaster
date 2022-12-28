@@ -9,6 +9,7 @@ public class Car {
     private final static int numberOfWheels=4;
     private int id;
     private static int lastId;
+    private CarType type;
 
     public Car(String company, String model) {
         this();
@@ -64,6 +65,14 @@ public class Car {
         this.gasCapacity = gasCapacity;
     }
 
+    public CarType getType() {
+        return type;
+    }
+
+    public void setType(CarType type) {
+        this.type = type;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Car) {
@@ -83,6 +92,7 @@ public class Car {
     public String toString() {
         return "Car{" +
                 "id='" + id + '\'' +
+                "type='" + getType() + '\'' +
                 "company='" + company + '\'' +
                 ", model='" + model + '\'' +
                 ", color='" + color + '\'' +

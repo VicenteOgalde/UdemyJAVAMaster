@@ -3,6 +3,7 @@ public class CarImpl {
 
     Car car= new Car();
     Car car2 = new Car("mazda","gt1",Color.RED);
+    car2.setType(CarType.SEDAN);
     car.setCompany("mazda");
     //car.setModel("gt1");
 
