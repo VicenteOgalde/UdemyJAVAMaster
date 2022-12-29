@@ -13,6 +13,19 @@ public class CarImpl {
         System.out.println(car2);
         System.out.println(car);
 
+        switch (car2.getType()){
+            case PICKUP:
+                System.out.println("im a pickup");
+                break;
+            case STATION_WAGON:
+                System.out.println("im a station wagon");
+                break;
+            case SEDAN:
+                System.out.println("im a sedan");
+                break;
+        }
+
+
 
 
 
