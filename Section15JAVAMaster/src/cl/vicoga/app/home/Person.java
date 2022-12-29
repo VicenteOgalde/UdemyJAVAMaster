@@ -10,4 +10,7 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
+    public static void greet(){
+        System.out.println("hello");
+    }
 }
