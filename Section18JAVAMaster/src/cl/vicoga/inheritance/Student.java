@@ -33,4 +33,9 @@ public class Student extends Person{
     public void setGrade(double grade) {
         this.grade = grade;
     }
+
+    @Override
+    public String greet(){
+        return super.greet()+" from a student";
+    }
 }

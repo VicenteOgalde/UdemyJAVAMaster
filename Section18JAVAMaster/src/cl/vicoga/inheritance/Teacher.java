@@ -20,4 +20,9 @@ private String course;
     public void setCourse(String course) {
         this.course = course;
     }
+
+    @Override
+    public String greet() {
+        return super.greet()+" from a teacher";
+    }
 }

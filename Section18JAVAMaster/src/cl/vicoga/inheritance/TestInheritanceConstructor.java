@@ -17,6 +17,9 @@ public class TestInheritanceConstructor {
         print(student);
         System.out.println("-------------------");
         print(studentInt);
+        System.out.println("-------------------");
+        System.out.println(student.greet());
+        System.out.println(studentInt.greet());
 
 
 

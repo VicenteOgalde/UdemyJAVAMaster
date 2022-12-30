@@ -20,4 +20,9 @@ public class InternationalStudent extends Student{
     public void setCountry(String country) {
         this.country = country;
     }
+
+    @Override
+    public String greet() {
+        return super.greet()+" international";
+    }
 }
