@@ -4,6 +4,20 @@ public class Student extends Person{
     private String school;
     private double grade;
 
+    public Student(String name) {
+        super(name);
+    }
+
+    public Student(String name, int age) {
+        super(name, age);
+
+    }
+
+    public Student(String name, int age, String school) {
+        super(name, age);
+        this.school = school;
+    }
+
     public String getSchool() {
         return school;
     }

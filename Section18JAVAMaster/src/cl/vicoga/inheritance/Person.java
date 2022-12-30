@@ -5,6 +5,14 @@ public class Person {
     private int age;
     private String email;
 
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public Person(String name, int age) {
+        this(name);
+        this.age = age;
+    }
 
     public String getName() {
         return name;
