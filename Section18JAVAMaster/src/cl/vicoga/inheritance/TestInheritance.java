@@ -4,7 +4,7 @@ public class TestInheritance {
     public static void main(String[] args) {
 
         Student student = new Student("st1");
-        
+
         student.setSchool("U 26");
 
         InternationalStudent studentInt= new InternationalStudent("pete");
