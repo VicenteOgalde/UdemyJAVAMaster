@@ -26,6 +26,16 @@ public class TestForm {
         language.addOption(java).addOption(new Option("2","Python"))
                 .addOption(new Option("3","JavaScript"));
 
+        FormElement greet = new FormElement("greet") {
+            @Override
+            public String drawHtml() {
+                return "<input disabled name=\""
+                        +this.name+"\" value=\""
+                        +this.value+"\">";
+            }
+        };
+    greet.setValue("hello from the disabled field");
+
         username.setValue("user1");
         pass.setValue("123");
         age.setValue("12");
@@ -40,6 +50,7 @@ public class TestForm {
         elements.add(email);
         elements.add(exp);
         elements.add(language);
+        elements.add(greet);
 
         elements.forEach(e-> System.out.println(e.drawHtml()));
 
