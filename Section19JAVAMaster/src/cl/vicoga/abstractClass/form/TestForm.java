@@ -1,9 +1,13 @@
 package cl.vicoga.abstractClass.form;
 
+import cl.vicoga.abstractClass.form.elements.FormElement;
 import cl.vicoga.abstractClass.form.elements.InputForm;
 import cl.vicoga.abstractClass.form.elements.SelectForm;
 import cl.vicoga.abstractClass.form.elements.TextAreaForm;
 import cl.vicoga.abstractClass.form.elements.select.Option;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestForm {
     public static void main(String[] args) {
@@ -11,6 +15,7 @@ public class TestForm {
         InputForm username= new InputForm("username");
         InputForm pass= new InputForm("pass","password");
         InputForm age= new InputForm("age","number");
+        InputForm email= new InputForm("a@a.a","email");
 
         TextAreaForm exp= new TextAreaForm("exp",5,4);
 
@@ -24,8 +29,20 @@ public class TestForm {
         username.setValue("user1");
         pass.setValue("123");
         age.setValue("12");
+        exp.setValue(".....10 years of exp......");
 
         java.setSelected(true);
+
+        List<FormElement> elements= new ArrayList<>() ;
+        elements.add(username);
+        elements.add(pass);
+        elements.add(age);
+        elements.add(email);
+        elements.add(exp);
+        elements.add(language);
+
+        elements.forEach(e-> System.out.println(e.drawHtml()));
+
 
 
 
