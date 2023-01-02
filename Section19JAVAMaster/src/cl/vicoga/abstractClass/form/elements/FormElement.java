@@ -22,6 +22,10 @@ abstract public class FormElement {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setValue(String value) {
         this.value = value;
     }
