@@ -15,6 +15,11 @@ public class Option {
         this.selected = selected;
     }
 
+    public Option(String value, String name) {
+        this.value = value;
+        this.name = name;
+    }
+
     public String getValue() {
         return value;
     }

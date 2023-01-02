@@ -33,7 +33,10 @@ public class SelectForm extends FormElement{
             sb.append("\n<option value='")
                     .append(o.getValue())
                     .append("'");
-            if(o.isSelected()){ sb.append(" selected");}
+            if(o.isSelected()){
+                sb.append(" selected");
+                this.value=o.getValue();
+            }
             sb.append(">").append(o.getName())
                     .append("</option>");
         }
