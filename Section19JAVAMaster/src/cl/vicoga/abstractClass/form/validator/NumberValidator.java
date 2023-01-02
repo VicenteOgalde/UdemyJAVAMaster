@@ -2,7 +2,7 @@ package cl.vicoga.abstractClass.form.validator;
 
 public class NumberValidator extends Validator{
 
-    protected String message="this field need to be a number";
+    protected String message="this field %s need to be a number";
 
     @Override
     public void setMessage(String message) {

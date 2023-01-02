@@ -49,9 +49,9 @@ public class TestForm {
     greet.setValue("hello from the disabled field");
 
         username.setValue("user1");
-        pass.setValue("1234567");
-        age.setValue("122");
-        email.setValue("asd@asd.cl");
+        pass.setValue("123456");
+        age.setValue("122h");
+        email.setValue("asdasd.cl");
         exp.setValue(".....10 years of exp......");
 
         java.setSelected(true);
@@ -69,7 +69,7 @@ public class TestForm {
 
         elements.forEach(e->{
             if(!e.isValidated()){
-                e.getErrors().forEach(err-> System.out.println(e.getName()+": "+ err));
+                e.getErrors().forEach(System.out::println);
             }
         });
 

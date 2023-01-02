@@ -1,7 +1,7 @@
 package cl.vicoga.abstractClass.form.validator;
 
 public class RequiredToValidate extends Validator{
-    protected String message="the field is required";
+    protected String message="the field %s is required";
 
     @Override
     public void setMessage(String message) {

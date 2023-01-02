@@ -41,7 +41,7 @@ abstract public class FormElement {
     public boolean isValidated(){
         this.validators.forEach(v->{
             if(!v.isValidated(this.value)){
-                this.errors.add(v.getMessage());
+                this.errors.add(String.format(v.getMessage(),this.name));
             }
         });
         return this.errors.isEmpty();

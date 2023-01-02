@@ -2,7 +2,7 @@ package cl.vicoga.abstractClass.form.validator;
 
 public class NotNull extends Validator{
 
-    protected String message="the field cant be null";
+    protected String message="the field %s cant be null";
 
 
 
