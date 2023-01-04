@@ -26,6 +26,7 @@ public class TestGeneric {
 
         printClient(vipList);
 
+        System.out.println(max(29,19,9));
     }
     public static <T> List<T> fromArrayToList(T [] c){
         return Arrays.asList(c);
@@ -35,5 +36,22 @@ public class TestGeneric {
     }
     public static void printClient(List<? extends Client> c){
         c.forEach(System.out::println);
+    }
+    public static <T extends Comparable<T>> T max(T a, T b,T c){
+
+
+        if (a.compareTo(b)>0){
+            if(a.compareTo(c)>0){
+                return a;
+            } else if (c.compareTo(a)>0) {
+                return c;
+            }
+        } else if (b.compareTo(c)>0) {
+            return b;
+        }
+            return c;
+
+
+
     }
 }
