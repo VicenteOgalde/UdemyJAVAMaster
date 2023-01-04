@@ -3,7 +3,7 @@ package cl.vicoga.print.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Resume extends Sheet{
+public class Resume extends Sheet implements Printable{
 
     private String name;
     private String career;

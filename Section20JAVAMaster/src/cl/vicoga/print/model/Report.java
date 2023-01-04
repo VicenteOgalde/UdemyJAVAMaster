@@ -1,6 +1,6 @@
 package cl.vicoga.print.model;
 
-public class Report extends Sheet{
+public class Report extends Sheet implements Printable{
 
     private String author;
     private String reviewer;
