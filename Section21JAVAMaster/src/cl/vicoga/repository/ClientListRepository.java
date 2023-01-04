@@ -3,6 +3,7 @@ package cl.vicoga.repository;
 import cl.vicoga.model.Client;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class ClientListRepository implements CrudRepository,SortRepository,PagingRepository{
@@ -51,11 +52,41 @@ public class ClientListRepository implements CrudRepository,SortRepository,Pagin
 
     @Override
     public List<Client> findAllPaged(int offset, int limit) {
-        return null;
+     
+
+        return this.clients.subList(offset,limit);
     }
 
     @Override
     public List<Client> findAllSorted(String field, Direction direction) {
-        return null;
+
+        this.clients.sort(new Comparator<Client>() {
+            int res=0;
+            @Override
+            public int compare(Client a, Client b) {
+
+                if(direction.equals(Direction.ASC)){
+                    switch (field) {
+                        case "id":
+                            res = a.getId().compareTo(b.getId());
+
+                        case "name":
+                            res = a.getName().compareTo(b.getName());
+                    }
+
+                } else if (direction.equals(Direction.DESC)) {
+                    switch (field) {
+                        case "id":
+                            res = b.getId().compareTo(a.getId());
+
+                        case "name":
+                            res = b.getName().compareTo(a.getName());
+                    }
+                }
+                return res;
+            }
+        });
+        return this.clients;
+
     }
 }
