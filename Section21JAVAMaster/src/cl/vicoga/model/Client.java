@@ -1,5 +1,7 @@
 package cl.vicoga.model;
 
+import java.util.Objects;
+
 public class Client {
 
     private Integer id;
@@ -30,4 +32,18 @@ public class Client {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(id, client.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
+
