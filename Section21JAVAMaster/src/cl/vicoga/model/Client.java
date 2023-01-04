@@ -6,7 +6,7 @@ public class Client {
 
     private Integer id;
     private String name;
-    private static Integer lastId;
+    private static int lastId;
 
     public Client() {
         this.id=++lastId;
@@ -21,9 +21,7 @@ public class Client {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+
 
     public String getName() {
         return name;
@@ -39,6 +37,14 @@ public class Client {
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
         return Objects.equals(id, client.id);
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 
     @Override

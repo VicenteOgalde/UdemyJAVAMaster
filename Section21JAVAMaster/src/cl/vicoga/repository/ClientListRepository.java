@@ -60,7 +60,8 @@ public class ClientListRepository implements CrudRepository,SortRepository,Pagin
     @Override
     public List<Client> findAllSorted(String field, Direction direction) {
 
-        this.clients.sort(new Comparator<Client>() {
+        List<Client> sortList=this.clients;
+        sortList.sort(new Comparator<Client>() {
             int res=0;
             @Override
             public int compare(Client a, Client b) {
@@ -86,7 +87,7 @@ public class ClientListRepository implements CrudRepository,SortRepository,Pagin
                 return res;
             }
         });
-        return this.clients;
+        return sortList;
 
     }
 }
