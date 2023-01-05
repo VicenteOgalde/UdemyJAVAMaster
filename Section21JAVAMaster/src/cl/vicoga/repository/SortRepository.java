@@ -4,8 +4,8 @@ import cl.vicoga.model.Client;
 
 import java.util.List;
 
-public interface SortRepository {
+public interface SortRepository<T> {
 
-    List<Client> findAllSorted(String field,Direction direction);
+    List<T> findAllSorted(String field,Direction direction);
 
 }

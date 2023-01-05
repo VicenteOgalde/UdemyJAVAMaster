@@ -8,7 +8,7 @@ import java.util.List;
 public class TestRepository {
     public static void main(String[] args) {
 
-        CrudRepository rep = new ClientListRepository();
+        AbstractListRepository<Client> rep = new ClientListRepository();
 
         rep.createClient(new Client("cli10"));
         rep.createClient(new Client("cli21"));
@@ -20,12 +20,12 @@ public class TestRepository {
 
         System.out.println();
 
-        clients=((PagingRepository)rep).findAllPaged(2,4);
+        clients=rep.findAllPaged(2,4);
         clients.forEach(System.out::println);
 
         System.out.println();
 
-        ((SortRepository)rep).findAllSorted("name", Direction.DESC).forEach(System.out::println);
+        rep.findAllSorted("name", Direction.DESC).forEach(System.out::println);
 
 
         System.out.println();

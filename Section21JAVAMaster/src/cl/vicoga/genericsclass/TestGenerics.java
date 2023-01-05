@@ -3,7 +3,7 @@ package cl.vicoga.genericsclass;
 public class TestGenerics {
     public static void main(String[] args) {
 
-        Truck truck = new Truck(2);
+        Truck<Animal> truck = new Truck(2);
         truck.addObj(new Animal("tt","dog"));
         truck.addObj(new Animal("xx","dog"));
         truck.addObj(new Animal("zz","dog"));
@@ -11,7 +11,7 @@ public class TestGenerics {
 
         truck.forEach(System.out::println);
 
-        Truck truckCar = new Truck(2);
+        Truck<Car> truckCar = new Truck(2);
         truckCar.addObj(new Car("mazda"));
         truckCar.addObj(new Car("toyota"));
         truckCar.addObj(new Car("kia"));
