@@ -9,15 +9,18 @@ public class TestExceptions {
         try {
 
             divide1 =  Integer.parseInt(x);
-            int sum = 5/divide1;
-            int divide = 10 / 0;
+            Calculator.divide(10,divide1);
+
+            
 
         }catch (NumberFormatException nfe){
             System.out.println(nfe.getMessage());
 
         }catch (ArithmeticException e){
             System.out.println("e.getMessage() = " + e.getMessage());
-        }finally {
+        } catch (DivideZeroException dze) {
+            dze.printStackTrace();
+        } finally {
             System.out.println("always execute");
         }
     }
