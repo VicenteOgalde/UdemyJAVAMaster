@@ -1,16 +1,19 @@
-package cl.vicoga.repository;
+package cl.vicoga.repository.list;
 
 import cl.vicoga.model.Client;
+import cl.vicoga.repository.AbstractListRepository;
+import cl.vicoga.repository.Direction;
+
 import java.util.Comparator;
 import java.util.List;
 
-public  class ClientListRepository extends AbstractListRepository<Client>{
+public  class ClientListRepository extends AbstractListRepository<Client> {
 
 
 
 
     @Override
-    public void updateClient(Client client) {
+    public void update(Client client) {
         Client c= this.findById(client.getId());
         c.setName(client.getName());
 

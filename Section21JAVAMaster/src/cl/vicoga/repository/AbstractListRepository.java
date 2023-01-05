@@ -35,13 +35,13 @@ public abstract class AbstractListRepository<T extends GenericEntity> implements
     }
 
     @Override
-    public void createClient(T t) {
+    public AbstractListRepository create(T t) {
         this.dataSource.add(t);
-
+        return this;
     }
 
     @Override
-    public void deleteClientById(Integer id) {
+    public void deleteById(Integer id) {
         this.dataSource.remove(this.findById(id));
 
     }

@@ -27,13 +27,7 @@ public class Client extends GenericEntity{
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return Objects.equals(id, client.id);
-    }
+
 
     @Override
     public String toString() {

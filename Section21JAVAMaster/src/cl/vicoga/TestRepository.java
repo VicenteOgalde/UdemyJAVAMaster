@@ -2,6 +2,7 @@ package cl.vicoga;
 
 import cl.vicoga.model.Client;
 import cl.vicoga.repository.*;
+import cl.vicoga.repository.list.ClientListRepository;
 
 import java.util.List;
 
@@ -10,10 +11,10 @@ public class TestRepository {
 
         AbstractListRepository<Client> rep = new ClientListRepository();
 
-        rep.createClient(new Client("cli10"));
-        rep.createClient(new Client("cli21"));
-        rep.createClient(new Client("cli3"));
-        rep.createClient(new Client("cli8"));
+        rep.create(new Client("cli10"));
+        rep.create(new Client("cli21"));
+        rep.create(new Client("cli3"));
+        rep.create(new Client("cli8"));
 
         List<Client> clients= rep.findAll();
         clients.forEach(System.out::println);
@@ -32,12 +33,12 @@ public class TestRepository {
 
         Client c=rep.findById(1);
         c.setName("cli U10");
-        rep.updateClient(c);
+        rep.update(c);
         rep.findAll().forEach(System.out::println);
 
         System.out.println();
 
-        rep.deleteClientById(1);
+        rep.deleteById(1);
 
         rep.findAll().forEach(System.out::println);
 
