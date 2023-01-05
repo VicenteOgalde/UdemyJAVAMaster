@@ -2,11 +2,13 @@ package cl.vicoga.repository;
 
 
 
+import cl.vicoga.model.GenericEntity;
+
 import java.util.ArrayList;
 
 import java.util.List;
 
-public abstract class AbstractListRepository<T> implements CrudRepository<T>,SortRepository<T>,PagingRepository<T>{
+public abstract class AbstractListRepository<T extends GenericEntity> implements CrudRepository<T>,SortRepository<T>,PagingRepository<T>{
 
     protected List<T> dataSource;
 
@@ -18,19 +20,20 @@ public abstract class AbstractListRepository<T> implements CrudRepository<T>,Sor
     public List<T> findAll() {
         return this.dataSource;
     }
-/*
+
     @Override
     public T findById(Integer id) {
-        Client cli=null;
-        for (Client c:this.dataSource) {
+        T cli=null;
+        for (T c:this.dataSource) {
             if(c.getId().equals(id)){
                 cli=c;
+                break;
             }
         }
 
         return cli;
     }
-*/
+
     @Override
     public void createClient(T t) {
         this.dataSource.add(t);

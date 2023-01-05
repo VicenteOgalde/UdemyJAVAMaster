@@ -2,18 +2,14 @@ package cl.vicoga.model;
 
 import java.util.Objects;
 
-public class Client {
+public class Client extends GenericEntity{
 
-    private Integer id;
+
     private String name;
-    private static int lastId;
 
-    public Client() {
-        this.id=++lastId;
-    }
 
     public Client(String name) {
-        this();
+        super();
         this.name = name;
     }
 

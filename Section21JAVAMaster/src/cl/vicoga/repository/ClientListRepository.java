@@ -7,17 +7,6 @@ import java.util.List;
 public  class ClientListRepository extends AbstractListRepository<Client>{
 
 
-    @Override
-    public Client findById(Integer id) {
-        Client cli=null;
-        for (Client c:this.dataSource) {
-            if(c.getId().equals(id)){
-                cli=c;
-            }
-        }
-
-        return cli;
-    }
 
 
     @Override
