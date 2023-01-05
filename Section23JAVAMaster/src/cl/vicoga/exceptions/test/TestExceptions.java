@@ -11,10 +11,9 @@ public class TestExceptions {
             divide1 =  Integer.parseInt(x);
             Calculator.divide(10,divide1);
 
-            
 
-        }catch (NumberFormatException nfe){
-            System.out.println(nfe.getMessage());
+
+
 
         }catch (ArithmeticException e){
             System.out.println("e.getMessage() = " + e.getMessage());
