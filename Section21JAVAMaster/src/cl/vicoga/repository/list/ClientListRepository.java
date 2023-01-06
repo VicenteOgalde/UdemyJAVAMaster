@@ -3,6 +3,7 @@ package cl.vicoga.repository.list;
 import cl.vicoga.model.Client;
 import cl.vicoga.repository.AbstractListRepository;
 import cl.vicoga.repository.Direction;
+import cl.vicoga.repository.exceptions.ReadDataException;
 
 import java.util.Comparator;
 import java.util.List;
@@ -13,7 +14,7 @@ public  class ClientListRepository extends AbstractListRepository<Client> {
 
 
     @Override
-    public void update(Client client) {
+    public void update(Client client) throws ReadDataException {
         Client c= this.findById(client.getId());
         c.setName(client.getName());
 

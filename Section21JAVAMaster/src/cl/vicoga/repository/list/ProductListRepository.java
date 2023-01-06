@@ -4,6 +4,7 @@ import cl.vicoga.model.Client;
 import cl.vicoga.model.Product;
 import cl.vicoga.repository.AbstractListRepository;
 import cl.vicoga.repository.Direction;
+import cl.vicoga.repository.exceptions.ReadDataException;
 
 import java.util.Comparator;
 import java.util.List;
@@ -53,7 +54,7 @@ public class ProductListRepository extends AbstractListRepository<Product> {
     }
 
     @Override
-    public void update(Product product) {
+    public void update(Product product) throws ReadDataException {
         Product product1=findById(product.getId());
         product1.setDesc(product.getDesc());
         product1.setPrice(product.getPrice());

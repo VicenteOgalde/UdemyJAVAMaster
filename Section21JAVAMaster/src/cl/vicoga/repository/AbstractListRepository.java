@@ -3,6 +3,8 @@ package cl.vicoga.repository;
 
 
 import cl.vicoga.model.GenericEntity;
+import cl.vicoga.repository.exceptions.DataException;
+import cl.vicoga.repository.exceptions.ReadDataException;
 
 import java.util.ArrayList;
 
@@ -22,7 +24,10 @@ public abstract class AbstractListRepository<T extends GenericEntity> implements
     }
 
     @Override
-    public T findById(Integer id) {
+    public T findById(Integer id) throws ReadDataException {
+        if(id==null || id<=0){
+            throw new ReadDataException("invalid id");
+        }
         T cli=null;
         for (T c:this.dataSource) {
             if(c.getId().equals(id)){
@@ -41,7 +46,7 @@ public abstract class AbstractListRepository<T extends GenericEntity> implements
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteById(Integer id) throws ReadDataException {
         this.dataSource.remove(this.findById(id));
 
     }
