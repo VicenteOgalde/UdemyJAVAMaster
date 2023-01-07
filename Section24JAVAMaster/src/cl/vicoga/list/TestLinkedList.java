@@ -1,4 +1,4 @@
-package cl.vicoga.set;
+package cl.vicoga.list;
 
 import cl.vicoga.set.model.Student;
 
