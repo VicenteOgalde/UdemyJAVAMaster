@@ -5,6 +5,7 @@ import cl.vicoga.set.model.Student;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class TestLinkedList {
     public static void main(String[] args) {
@@ -32,7 +33,17 @@ public class TestLinkedList {
 
         System.out.println("t.getLast() = " + t.getLast());
 
-        
+        ListIterator<Student> li= t.listIterator();
+        System.out.println();
+        while (li.hasNext()){
+            System.out.println(li.next());
+        }
+        System.out.println();
+        while (li.hasPrevious()){
+            Student s=li.previous();
+            System.out.println(s);
+        }
+
 
 
 
