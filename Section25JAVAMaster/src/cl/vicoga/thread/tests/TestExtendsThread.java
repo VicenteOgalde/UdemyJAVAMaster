@@ -10,7 +10,7 @@ public class TestExtendsThread {
 
         Thread thread2 = new NameThread("thread 2");
         thread.start();
-        
+
 
         System.out.println(thread.getState());
 
