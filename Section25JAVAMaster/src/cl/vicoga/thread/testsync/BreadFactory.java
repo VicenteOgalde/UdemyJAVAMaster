@@ -21,9 +21,13 @@ public class BreadFactory {
         notify();
 
     }
-    public synchronized  String consume() throws InterruptedException {
+    public synchronized  String consume() {
         while (!available){
-            wait();
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         System.out.println("client consume "+this.bread);
         this.available=false;
