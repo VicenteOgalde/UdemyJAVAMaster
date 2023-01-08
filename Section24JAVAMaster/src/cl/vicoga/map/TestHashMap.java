@@ -8,15 +8,26 @@ import java.util.Set;
 public class TestHashMap {
     public static void main(String[] args) {
 
-        Map<String,String> person= new HashMap<>();
+        Map<String,Object> person= new HashMap<>();
 
         person.put("name","tex");
         person.put("nick","t");
         person.put("age","55");
 
+        Map<String,String> address= new HashMap<>();
+        address.put("country","USA");
+        address.put("state","cali");
+        address.put("city","ohio");
+
+        person.put("address",address);
+
+        Map<String,String> adre=(Map<String, String>) person.get("address");
+
+        adre.forEach((k,v)-> System.out.println("adre "+k+" "+v));
+
         System.out.println("person = " + person);
 
-        String name = person.get("name");
+        String name =(String) person.get("name");
 
         System.out.println("name = " + name);
 
@@ -30,7 +41,7 @@ public class TestHashMap {
         b=person.containsValue("55");
         System.out.println("exist 55 value "+b);
 
-        Collection<String> values= person.values();
+        Collection<Object> values= person.values();
 
         System.out.println("values = " + values);
 
