@@ -26,7 +26,7 @@ public class TestStream {
 
         Stream<Integer> n=numbers.stream();
 
-        
+
 
 
 
