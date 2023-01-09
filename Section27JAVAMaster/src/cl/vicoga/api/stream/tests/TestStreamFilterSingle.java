@@ -24,7 +24,10 @@ public class TestStreamFilterSingle {
 
         Optional<User> u= names.findFirst();
 
-        System.out.println(u.get().getName());
+        //System.out.println(u.orElse(new User("N",".N")));
+       // System.out.println(u.orElseGet(()->new User("NN")));
+        //System.out.println(u.orElseThrow());
+        u.ifPresent(user -> System.out.println(user.getName()));
 
 
 

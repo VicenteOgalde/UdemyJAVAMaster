@@ -30,4 +30,12 @@ public class User {
     public void setNick(String nick) {
         this.nick = nick;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", nick='" + nick + '\'' +
+                '}';
+    }
 }
