@@ -2,9 +2,8 @@ package cl.vicoga.api.stream.tests;
 
 import java.util.IntSummaryStatistics;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
-public class TestStreamFilterReduceRange {
+public class TestStreamFilterRange {
 
     public static void main(String[] args) {
 
