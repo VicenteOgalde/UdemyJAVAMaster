@@ -29,6 +29,6 @@ public class TestLocalDate {
         DayOfWeek dw = LocalDate.parse("2021-08-06").getDayOfWeek();
 
         System.out.println("dw = " + dw);
-        
+
     }
 }
