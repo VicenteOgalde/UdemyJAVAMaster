@@ -14,9 +14,12 @@ public class TestAnnotation {
         Product p  = new Product();
         p.setDate(LocalDate.now());
         p.setPrice(5000L);
-        p.setName("tv");
+        p.setName("tv led lg");
 
 
+
+
+        JsonSerializer.objectInit(p);
 
         System.out.println("json = " + JsonSerializer.turnToJson(p));
     }
