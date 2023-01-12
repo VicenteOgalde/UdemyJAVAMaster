@@ -9,5 +9,6 @@ import java.lang.annotation.*;
 public @interface JsonAttribute {
 
     String name() default "";
+    boolean capitalize()default false;
 
 }
