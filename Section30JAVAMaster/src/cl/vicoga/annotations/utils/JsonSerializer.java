@@ -34,6 +34,7 @@ public class JsonSerializer {
         if(Objects.isNull(obj)){
             throw new JsonSerializerException("the object cant be null");
         }
+        objectInit(obj);
 
         Field[] att = obj.getClass().getDeclaredFields();
         return Arrays.stream(att)

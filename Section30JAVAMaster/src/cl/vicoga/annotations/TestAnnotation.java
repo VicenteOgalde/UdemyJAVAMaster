@@ -19,7 +19,7 @@ public class TestAnnotation {
 
 
 
-        JsonSerializer.objectInit(p);
+
 
         System.out.println("json = " + JsonSerializer.turnToJson(p));
     }
