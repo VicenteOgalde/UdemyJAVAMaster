@@ -7,6 +7,7 @@ public class Component {
 
     private String name;
     private List<Component> sons;
+    private int level;
 
     public Component() {
         this.sons= new ArrayList<>();
@@ -31,6 +32,14 @@ public class Component {
 
     public void setSons(List<Component> sons) {
         this.sons = sons;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public Component addSon(Component component){
