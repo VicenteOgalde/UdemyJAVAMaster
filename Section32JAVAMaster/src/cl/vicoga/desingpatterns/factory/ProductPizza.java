@@ -14,6 +14,14 @@ public abstract class ProductPizza {
 
     }
 
+    public ProductPizza addIngredient(String i){
+        this.ingredients.add(i);
+        return this;
+    }
+    public String getName() {
+        return name;
+    }
+
     public void prepare(){
         System.out.println("preparing "+name);
         System.out.println("selecting the dough "+dough);
