@@ -17,7 +17,7 @@ public class TestFactory {
         System.out.println("tex order "+pizza.getName());
 
         pizza= ny.getPizza("veggie");
-        
+
         System.out.println("tix order "+pizza.getName());
 
 
