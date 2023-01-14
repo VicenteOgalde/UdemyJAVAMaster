@@ -38,4 +38,19 @@ public class Directory extends Component{
 
         return sb.toString();
     }
+
+    @Override
+    public boolean find(String name) {
+
+        if(this.name.equalsIgnoreCase(name)){
+            return true;
+        }
+        for (Component c:this.children) {
+            if(c.find(name)){
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

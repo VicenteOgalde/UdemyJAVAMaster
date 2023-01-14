@@ -19,6 +19,7 @@ public abstract class Component {
     }
 
     abstract public String show(int level);
+    abstract public boolean find(String name);
 
     @Override
     public boolean equals(Object o) {

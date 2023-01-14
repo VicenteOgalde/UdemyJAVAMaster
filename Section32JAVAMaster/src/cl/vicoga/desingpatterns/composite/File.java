@@ -9,4 +9,9 @@ public class File extends Component{
     public String show(int level) {
         return "\t".repeat(level)+getName();
     }
+
+    @Override
+    public boolean find(String name) {
+        return this.name.equalsIgnoreCase(name);
+    }
 }
