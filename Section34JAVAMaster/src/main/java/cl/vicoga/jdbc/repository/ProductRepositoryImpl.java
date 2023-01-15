@@ -72,8 +72,7 @@ public class ProductRepositoryImpl implements Repository<Product>{
     @Override
     public void update(Product product) {
         try(PreparedStatement pst= getConnection()
-                .prepareStatement("update product set name=?,section=?,price=?,date=? where id=?" +
-                        "values(?,?,?,?,?)")){
+                .prepareStatement("update product set name=?,section=?,price=?,date=? where id=?")){
 
             pst.setString(1,product.getName());
             pst.setString(2,product.getSection());

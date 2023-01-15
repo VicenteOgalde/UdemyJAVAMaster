@@ -20,7 +20,21 @@ public class TestJdbc {
 
             products.forEach(System.out::println);
 
-            System.out.println(productRepository.findById("28"));
+            System.out.println(productRepository.findById("a28"));
+
+            java.util.Date dat= new java.util.Date();
+            Date date = new Date(dat.getTime());
+
+            Product p = new Product("q12","printer","electronics",125,date);
+
+            productRepository.save(p);
+            System.out.println(productRepository.findAll());
+            p.setPrice(320);
+            productRepository.update(p);
+            System.out.println(productRepository.findAll());
+
+            productRepository.delete(p);
+            System.out.println(productRepository.findAll());
 
 
 
