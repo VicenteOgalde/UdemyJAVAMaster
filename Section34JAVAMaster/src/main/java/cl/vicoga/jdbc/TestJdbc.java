@@ -1,13 +1,14 @@
 package cl.vicoga.jdbc;
 
+import cl.vicoga.jdbc.util.ConnectionDB;
+
 import java.sql.*;
 
 public class TestJdbc {
     public static void main(String[] args) {
 
 
-        try (Connection  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp_project"
-                ,"root","");
+        try (Connection  conn = ConnectionDB.getConn();
              Statement  statement= conn.createStatement();
              ResultSet    resultSet= statement.executeQuery("select * from product")){
 
