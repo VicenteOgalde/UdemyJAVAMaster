@@ -1,26 +1,25 @@
 package cl.vicoga.jdbc;
 
+import cl.vicoga.jdbc.model.Product;
+import cl.vicoga.jdbc.repository.ProductRepositoryImpl;
+import cl.vicoga.jdbc.repository.Repository;
 import cl.vicoga.jdbc.util.ConnectionDB;
 
 import java.sql.*;
+import java.util.List;
 
 public class TestJdbc {
     public static void main(String[] args) {
 
 
-        try (Connection  conn = ConnectionDB.getConn();
-             Statement  statement= conn.createStatement();
-             ResultSet    resultSet= statement.executeQuery("select * from product")){
+        try (Connection  conn = ConnectionDB.getConn()){
 
+            Repository<Product> productRepository= new ProductRepositoryImpl();
 
-            while (resultSet.next()){
-                System.out.print(resultSet.getString(1)+" | ");
-                System.out.print(resultSet.getString(2)+" | ");
-                System.out.print(resultSet.getString(3)+" | ");
-                System.out.print(resultSet.getString(4)+" | ");
-                System.out.println(resultSet.getString(5));
+            List<Product> products= productRepository.findAll();
 
-            }
+            products.forEach(System.out::println);
+
 
 
         } catch (SQLException e) {
