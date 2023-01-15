@@ -38,11 +38,12 @@ public class ProductRepositoryImpl implements Repository<Product>{
         try(PreparedStatement pst = getConnection().prepareStatement("select * from product where id=?");
             ){
             pst.setString(1,id);
-            ResultSet rs= pst.executeQuery();
-            if(rs.next()) {
-                p = mapProduct(rs);
+            try (ResultSet rs= pst.executeQuery()) {
+                if (rs.next()) {
+                    p = mapProduct(rs);
+                }
             }
-            rs.close();
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -53,15 +54,49 @@ public class ProductRepositoryImpl implements Repository<Product>{
     @Override
     public void save(Product product) {
 
+        try(PreparedStatement pst= getConnection()
+                .prepareStatement("insert into product (id,name,section,price,date) " +
+                        "values(?,?,?,?,?)")){
+            pst.setString(1,product.getId());
+            pst.setString(2,product.getName());
+            pst.setString(3,product.getSection());
+            pst.setDouble(4,product.getPrice());
+            pst.setDate(5,new Date(product.getDate().getTime()));
+            pst.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public void update(Product product) {
+        try(PreparedStatement pst= getConnection()
+                .prepareStatement("update product set name=?,section=?,price=?,date=? where id=?" +
+                        "values(?,?,?,?,?)")){
 
+            pst.setString(1,product.getName());
+            pst.setString(2,product.getSection());
+            pst.setDouble(3,product.getPrice());
+            pst.setDate(4,new Date(product.getDate().getTime()));
+            pst.setString(5,product.getId());
+            pst.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void delete(Product product) {
+
+        try(PreparedStatement pst= getConnection()
+                .prepareStatement("delete from product where id=?")){
+            pst.setString(1,product.getId());
+            pst.executeUpdate();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
 
     }
 
