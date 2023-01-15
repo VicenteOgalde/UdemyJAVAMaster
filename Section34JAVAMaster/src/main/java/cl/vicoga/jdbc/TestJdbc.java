@@ -20,6 +20,8 @@ public class TestJdbc {
 
             products.forEach(System.out::println);
 
+            System.out.println(productRepository.findById("28"));
+
 
 
         } catch (SQLException e) {

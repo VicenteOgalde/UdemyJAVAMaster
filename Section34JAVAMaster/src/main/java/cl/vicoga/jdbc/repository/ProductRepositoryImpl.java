@@ -3,10 +3,7 @@ package cl.vicoga.jdbc.repository;
 import cl.vicoga.jdbc.model.Product;
 import cl.vicoga.jdbc.util.ConnectionDB;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +22,7 @@ public class ProductRepositoryImpl implements Repository<Product>{
             ResultSet rs=st.executeQuery("select * from product")){
 
             while (rs.next()){
-                products.add(new Product(
-                        rs.getString("id"),
-                        rs.getString("name"),
-                        rs.getString("section"),
-                        rs.getDouble("price"),
-                        rs.getDate("date")
-                ));
+                products.add(mapProduct(rs));
             }
 
         } catch (SQLException e) {
@@ -42,8 +33,21 @@ public class ProductRepositoryImpl implements Repository<Product>{
     }
 
     @Override
-    public Product findById() {
-        return null;
+    public Product findById(String id) {
+        Product p=null;
+        try(PreparedStatement pst = getConnection().prepareStatement("select * from product where id=?");
+            ){
+            pst.setString(1,id);
+            ResultSet rs= pst.executeQuery();
+            if(rs.next()) {
+                p = mapProduct(rs);
+            }
+            rs.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return p;
     }
 
     @Override
@@ -59,5 +63,15 @@ public class ProductRepositoryImpl implements Repository<Product>{
     @Override
     public void delete(Product product) {
 
+    }
+
+    private Product mapProduct(ResultSet rs) throws SQLException {
+        Product p= new Product();
+        p.setId(rs.getString("id"));
+        p.setName(rs.getString("name"));
+        p.setSection(rs.getString("section"));
+        p.setDate(rs.getDate("date"));
+        p.setPrice(rs.getDouble("price"));
+        return p;
     }
 }
