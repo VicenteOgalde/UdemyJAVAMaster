@@ -7,6 +7,11 @@ public class BankAccount {
     private String name;
     private BigDecimal balance;
 
+    public BankAccount(String name,BigDecimal balance) {
+        this.balance = balance;
+        this.name=name;
+    }
+
     public String getName() {
         return name;
     }
