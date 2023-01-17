@@ -31,10 +31,35 @@ class BankAccountTest {
     void testAccountReference() {
         BankAccount account = new BankAccount("john", new BigDecimal("1000.123"));
 
-        BankAccount account2 = new BankAccount("j7ohn", new BigDecimal("1000.123"));
+        BankAccount account2 = new BankAccount("john", new BigDecimal("1000.123"));
 
 //        assertNotEquals(account,account2);
         assertEquals(account,account2);
+
+
+    }
+
+    @Test
+    void testDebitAccount() {
+        BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
+
+        account.debit(new BigDecimal(100));
+
+        assertEquals(900,account.getBalance().intValue());
+
+        assertEquals("900.123",account.getBalance().toPlainString());
+
+
+    }
+    @Test
+    void testCreditAccount() {
+        BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
+
+        account.credit(new BigDecimal(100));
+
+        assertEquals(1100,account.getBalance().intValue());
+
+        assertEquals("1100.123",account.getBalance().toPlainString());
 
 
     }
