@@ -20,6 +20,8 @@ public class Bank {
         this.accounts = accounts;
     }
 public void addAccount(BankAccount account){
+        account.setBank(this);
+
         this.accounts.add(account);
 }
     public String getName() {

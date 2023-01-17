@@ -14,6 +14,7 @@ public class BankAccount {
     public BankAccount(String name,BigDecimal balance) {
         this.balance = balance;
         this.name=name;
+
     }
 
     public Bank getBank() {

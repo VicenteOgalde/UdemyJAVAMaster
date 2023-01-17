@@ -92,15 +92,22 @@ class BankAccountTest {
     @Test
     void testBankAccountsRelationship() {
         BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
-        BankAccount account2 = new BankAccount("tex", new BigDecimal("5000.123"));
+        BankAccount account2 = new BankAccount("tox", new BigDecimal("5000.123"));
 
         Bank bank = new Bank();
+        bank.setName("b1");
         bank.addAccount(account);
         bank.addAccount(account2);
         bank.transfer(account,account2,new BigDecimal("800.123"));
 
         assertEquals(2,bank.getAccounts().size());
-        
+        assertEquals("b1",account.getBank().getName());
+
+        assertEquals("tex",bank.getAccounts().stream()
+                .filter(a->a.getName().equals("tex")).findFirst().get().getName());
+
+        assertTrue(bank.getAccounts().stream()
+                .anyMatch(a->a.getName().equals("tex")));
 
         assertEquals(account.getBalance().toPlainString(),"200.000");
         assertEquals(account2.getBalance().toPlainString(),"5800.246");
