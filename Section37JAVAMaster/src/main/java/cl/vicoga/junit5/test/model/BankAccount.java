@@ -10,9 +10,18 @@ public class BankAccount {
     private String name;
     private BigDecimal balance;
 
+    private Bank bank;
     public BankAccount(String name,BigDecimal balance) {
         this.balance = balance;
         this.name=name;
+    }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 
     public String getName() {
