@@ -20,5 +20,12 @@ class BankAccountTest {
 
 
     }
+    @Test
+    void testBalance(){
+        BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
+        assertEquals(1000.123,account.getBalance().doubleValue());
+        assertFalse(account.getBalance().compareTo(BigDecimal.ZERO)<0);
+    }
+
 
 }
