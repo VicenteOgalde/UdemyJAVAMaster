@@ -1,5 +1,6 @@
 package cl.vicoga.junit5.test.model;
 
+import cl.vicoga.junit5.test.Exception.NoCreditException;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -62,5 +63,17 @@ class BankAccountTest {
         assertEquals("1100.123",account.getBalance().toPlainString());
 
 
+    }
+
+    @Test
+    void NoCreditException() {
+        BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
+
+        Exception e= assertThrows(NoCreditException.class,
+                ()->{
+            account.debit(new BigDecimal("1200.231"));
+
+                });
+        assertEquals("not enough funds",e.getMessage());
     }
 }
