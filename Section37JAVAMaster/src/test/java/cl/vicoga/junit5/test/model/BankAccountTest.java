@@ -27,5 +27,15 @@ class BankAccountTest {
         assertFalse(account.getBalance().compareTo(BigDecimal.ZERO)<0);
     }
 
+    @Test
+    void testAccountReference() {
+        BankAccount account = new BankAccount("john", new BigDecimal("1000.123"));
 
+        BankAccount account2 = new BankAccount("j7ohn", new BigDecimal("1000.123"));
+
+//        assertNotEquals(account,account2);
+        assertEquals(account,account2);
+
+
+    }
 }
