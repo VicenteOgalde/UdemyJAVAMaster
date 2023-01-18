@@ -16,7 +16,7 @@ class BankAccountTest {
         String okName = "tex";
         String real = account.getName();
 
-        assertEquals(okName, real);
+        assertEquals(okName, real,()->"Must be the same name");
 
 
     }
@@ -104,12 +104,12 @@ class BankAccountTest {
 
         assertAll(
                 () -> {
-                    assertEquals(2, bank.getAccounts().size());
+                    assertEquals(2, bank.getAccounts().size(),()->"not the same size");
                 }, () -> {
                     assertEquals("tex", bank.getAccounts().stream()
-                            .filter(a -> a.getName().equals("tex")).findFirst().get().getName());
+                            .filter(a -> a.getName().equals("tex")).findFirst().get().getName(),()->"not exist that name");
                 }, () -> {
-                    assertEquals("b1", account.getBank().getName());
+                    assertEquals("b1", account.getBank().getName(),()->"not the same name");
                 }
         );
 
