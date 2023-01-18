@@ -1,6 +1,8 @@
 package cl.vicoga.junit5.test.model;
 
 import cl.vicoga.junit5.test.Exception.NoCreditException;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -67,6 +69,7 @@ class BankAccountTest {
     }
 
     @Test
+    @DisplayName("Testing name account")
     void NoCreditException() {
         BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
 
@@ -79,6 +82,7 @@ class BankAccountTest {
     }
 
     @Test
+    @DisplayName("Test money transfer")
     void testTransferMoney() {
         BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
         BankAccount account2 = new BankAccount("tex", new BigDecimal("5000.123"));
@@ -92,7 +96,9 @@ class BankAccountTest {
     }
 
     @Test
+    @Disabled
     void testBankAccountsRelationship() {
+        fail();
         BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
         BankAccount account2 = new BankAccount("tox", new BigDecimal("5000.123"));
 
