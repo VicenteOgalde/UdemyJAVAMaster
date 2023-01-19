@@ -1,6 +1,7 @@
 package cl.vicoga.junit5.test.model;
 
 import cl.vicoga.junit5.test.Exception.NoCreditException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,9 +12,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BankAccountTest {
 
+    BankAccount account;
+    BankAccount account2;
+    @BeforeEach
+    void testMethodInit(){
+
+        this.account = new BankAccount("tex", new BigDecimal("1000.523"));
+        this.account2 =new BankAccount("john", new BigDecimal("1000.123"));
+    }
     @Test
     void testAccountName() {
-        BankAccount account = new BankAccount("tex", new BigDecimal("1000.523"));
+        account = new BankAccount("tex", new BigDecimal("1000.523"));
 //        account.setName("tex");
         String okName = "tex";
         String real = account.getName();
@@ -25,16 +34,16 @@ class BankAccountTest {
 
     @Test
     void testBalance() {
-        BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
+        account = new BankAccount("tex", new BigDecimal("1000.123"));
         assertEquals(1000.123, account.getBalance().doubleValue());
         assertFalse(account.getBalance().compareTo(BigDecimal.ZERO) < 0);
     }
 
     @Test
     void testAccountReference() {
-        BankAccount account = new BankAccount("john", new BigDecimal("1000.123"));
+        account = new BankAccount("john", new BigDecimal("1000.123"));
 
-        BankAccount account2 = new BankAccount("john", new BigDecimal("1000.123"));
+        account2 = new BankAccount("john", new BigDecimal("1000.123"));
 
 //        assertNotEquals(account,account2);
         assertEquals(account, account2);
@@ -44,7 +53,7 @@ class BankAccountTest {
 
     @Test
     void testDebitAccount() {
-        BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
+        account = new BankAccount("tex", new BigDecimal("1000.123"));
 
         account.debit(new BigDecimal(100));
 
@@ -57,7 +66,7 @@ class BankAccountTest {
 
     @Test
     void testCreditAccount() {
-        BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
+        account = new BankAccount("tex", new BigDecimal("1000.123"));
 
         account.credit(new BigDecimal(100));
 
@@ -71,7 +80,7 @@ class BankAccountTest {
     @Test
     @DisplayName("Testing name account")
     void NoCreditException() {
-        BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
+        account = new BankAccount("tex", new BigDecimal("1000.123"));
 
         Exception e = assertThrows(NoCreditException.class,
                 () -> {
@@ -84,8 +93,8 @@ class BankAccountTest {
     @Test
     @DisplayName("Test money transfer")
     void testTransferMoney() {
-        BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
-        BankAccount account2 = new BankAccount("tex", new BigDecimal("5000.123"));
+        account = new BankAccount("tex", new BigDecimal("1000.123"));
+        account2 = new BankAccount("tex", new BigDecimal("5000.123"));
 
         Bank bank = new Bank();
         bank.transfer(account, account2, new BigDecimal("800.123"));
@@ -99,8 +108,8 @@ class BankAccountTest {
     @Disabled
     void testBankAccountsRelationship() {
         fail();
-        BankAccount account = new BankAccount("tex", new BigDecimal("1000.123"));
-        BankAccount account2 = new BankAccount("tox", new BigDecimal("5000.123"));
+        account = new BankAccount("tex", new BigDecimal("1000.123"));
+        account2 = new BankAccount("tox", new BigDecimal("5000.123"));
 
         Bank bank = new Bank();
         bank.setName("b1");
