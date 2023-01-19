@@ -1,10 +1,8 @@
 package cl.vicoga.junit5.test.model;
 
 import cl.vicoga.junit5.test.Exception.NoCreditException;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.*;
 
 import java.math.BigDecimal;
 
@@ -14,6 +12,17 @@ class BankAccountTest {
 
     BankAccount account;
     BankAccount account2;
+
+    @BeforeAll
+    static void beforeAll() {
+        System.out.println("starting test");
+    }
+
+    @AfterAll
+    static void afterAll() {
+        System.out.println("finishing test");
+    }
+
     @BeforeEach
     void testMethodInit(){
 
@@ -22,7 +31,7 @@ class BankAccountTest {
     }
     @Test
     void testAccountName() {
-        account = new BankAccount("tex", new BigDecimal("1000.523"));
+
 //        account.setName("tex");
         String okName = "tex";
         String real = account.getName();
@@ -140,5 +149,32 @@ class BankAccountTest {
         assertEquals(account.getBalance().toPlainString(), "200.000");
         assertEquals(account2.getBalance().toPlainString(), "5800.246");
 
+    }
+
+    @Test
+    @EnabledOnOs(OS.WINDOWS)
+    void testOnlyWindows() {
+
+    }
+    @Test
+    @EnabledOnOs(OS.LINUX)
+    void testOnlyLinux() {
+
+    }
+
+    @Test
+    @DisabledOnOs(OS.WINDOWS)
+    void testNoWin() {
+    }
+
+    @Test
+    @EnabledOnJre(JRE.JAVA_8)
+     void testJava8() {
+    }
+
+    @Test
+    @EnabledIfSystemProperty(named = "java.version",matches = "11.0.13")
+    void testIfJavaVersion() {
+        System.out.println("-----------great test on java 11--------------");
     }
 }
