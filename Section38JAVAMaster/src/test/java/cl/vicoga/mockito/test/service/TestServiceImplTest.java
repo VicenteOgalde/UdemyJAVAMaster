@@ -7,9 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.*;
 
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,13 +26,7 @@ class TestServiceImplTest {
     @Test
     void findTestByName() {
 
-
-        List<cl.vicoga.mockito.test.model.Test> tests= Arrays.asList(
-                new cl.vicoga.mockito.test.model.Test(1L,"t1"),
-                new cl.vicoga.mockito.test.model.Test(2L,"t2"),
-                new cl.vicoga.mockito.test.model.Test(3L,"t3"));
-
-        when(repository.findAll()).thenReturn(tests);
+        when(repository.findAll()).thenReturn(Data.DATA_TEST);
 
         Optional<cl.vicoga.mockito.test.model.Test> test = service.findTestByName("t1");
 
@@ -48,11 +40,7 @@ class TestServiceImplTest {
     }
     @Test
     void findTestByNameEmptyList() {
-
-
-        List<cl.vicoga.mockito.test.model.Test> tests= Collections.emptyList();
-
-        when(repository.findAll()).thenReturn(tests);
+        when(repository.findAll()).thenReturn(Collections.emptyList());
 
         Optional<cl.vicoga.mockito.test.model.Test> test = service.findTestByName("t1");
 
@@ -60,6 +48,20 @@ class TestServiceImplTest {
 
 
 
+
+
+
+    }
+
+    @Test
+    void findTestQuestion() {
+
+        when(repository.findAll()).thenReturn(Data.DATA_TEST);
+        when(questionRepository.findQuestionByTestId(2L)).thenReturn(Data.DATA_QUESTION);
+
+        cl.vicoga.mockito.test.model.Test test = service.findTestByNameWithQuestion("t2");
+
+        assertEquals(3,test.getQuestions().size());
 
 
 

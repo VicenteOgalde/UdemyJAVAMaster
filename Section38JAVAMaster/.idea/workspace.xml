@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d925c54-df1f-400b-899a-3dac3ce38130" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/repository/QuestionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/cl/vicoga/mockito/test/service/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/service/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/service/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/service/TestServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/cl/vicoga/mockito/test/service/TestServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cl/vicoga/mockito/test/service/TestServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/cl/vicoga/mockito/test/service/TestServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/cl/vicoga/mockito/test/service/TestServiceImplTest.class" afterDir="false" />
     </list>
@@ -20,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -58,7 +56,7 @@
       <recent name="cl.vicoga.mockito.test.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestServiceImplTest.findTestByNameEmptyList">
+  <component name="RunManager" selected="JUnit.TestServiceImplTest.findTestQuestion">
     <configuration name="TestServiceImplTest.findTestByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Section38JAVAMaster" />
       <extension name="coverage">
@@ -91,8 +89,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestServiceImplTest.findTestQuestion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Section38JAVAMaster" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cl.vicoga.mockito.test.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cl.vicoga.mockito.test.service" />
+      <option name="MAIN_CLASS_NAME" value="cl.vicoga.mockito.test.service.TestServiceImplTest" />
+      <option name="METHOD_NAME" value="findTestQuestion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestServiceImplTest.findTestQuestion" />
         <item itemvalue="JUnit.TestServiceImplTest.findTestByNameEmptyList" />
         <item itemvalue="JUnit.TestServiceImplTest.findTestByName" />
       </list>
