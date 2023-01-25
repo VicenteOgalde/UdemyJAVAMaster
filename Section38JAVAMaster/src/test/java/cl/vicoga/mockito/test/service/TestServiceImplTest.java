@@ -57,11 +57,45 @@ class TestServiceImplTest {
     void findTestQuestion() {
 
         when(repository.findAll()).thenReturn(Data.DATA_TEST);
-        when(questionRepository.findQuestionByTestId(2L)).thenReturn(Data.DATA_QUESTION);
+        when(questionRepository.findQuestionByTestId(anyLong())).thenReturn(Data.DATA_QUESTION);
 
         cl.vicoga.mockito.test.model.Test test = service.findTestByNameWithQuestion("t2");
 
         assertEquals(3,test.getQuestions().size());
+
+
+
+    }
+    @Test
+    void findTestQuestionVerify() {
+
+        when(repository.findAll()).thenReturn(Data.DATA_TEST);
+        when(questionRepository.findQuestionByTestId(anyLong())).thenReturn(Data.DATA_QUESTION);
+
+        cl.vicoga.mockito.test.model.Test test = service.findTestByNameWithQuestion("t2");
+
+        assertEquals(3,test.getQuestions().size());
+
+        verify(repository).findAll();
+        verify(questionRepository).findQuestionByTestId(anyLong());
+
+
+
+
+    }
+    @Test
+    void findTestQuestionVerifyNotExist() {
+
+        when(repository.findAll()).thenReturn(Collections.emptyList());
+        when(questionRepository.findQuestionByTestId(anyLong())).thenReturn(Data.DATA_QUESTION);
+
+        cl.vicoga.mockito.test.model.Test test = service.findTestByNameWithQuestion("t5");
+
+        assertNull(test);
+
+        verify(repository).findAll();
+        verify(questionRepository).findQuestionByTestId(anyLong());
+
 
 
 
