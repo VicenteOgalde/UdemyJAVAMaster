@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface TestService {
     Optional<Test> findTestByName(String name);
 
+    Test findTestByNameWithQuestion(String name);
+
 }
