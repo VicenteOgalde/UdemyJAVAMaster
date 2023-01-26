@@ -23,6 +23,14 @@ public class TestServiceImpl implements TestService{
     }
 
     @Override
+    public Test saveTest(Test test) {
+        if(!test.getQuestions().isEmpty()){
+            questionRepository.saveSomeQuestions(test.getQuestions());
+        }
+        return repository.save(test);
+    }
+
+    @Override
     public Test findTestByNameWithQuestion(String name) {
         Optional<Test> test = findTestByName(name);
         if(test.isPresent()){

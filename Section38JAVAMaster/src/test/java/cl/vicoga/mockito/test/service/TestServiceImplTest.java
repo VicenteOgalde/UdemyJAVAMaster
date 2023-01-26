@@ -113,4 +113,15 @@ class TestServiceImplTest {
 
 
     }
+
+    @Test
+    void saveTestTest() {
+        when(repository.save(any(cl.vicoga.mockito.test.model.Test.class)))
+                .thenReturn(Data.TEST);
+        cl.vicoga.mockito.test.model.Test t=service.saveTest(Data.TEST);
+        assertNotNull(t);
+        assertEquals(8L,t.getId());
+
+
+    }
 }

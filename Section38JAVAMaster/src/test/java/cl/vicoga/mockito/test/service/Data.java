@@ -13,4 +13,5 @@ public class Data {
     public static final List<String> DATA_QUESTION= Arrays.asList(
             "t1q10","t1q20","t2q15"
     );
+    public static final Test TEST= new Test(8L,"t8");
 }

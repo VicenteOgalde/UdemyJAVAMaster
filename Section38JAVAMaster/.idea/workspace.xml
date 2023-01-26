@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3d925c54-df1f-400b-899a-3dac3ce38130" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/repository/QuestionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/repository/TestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/repository/TestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/service/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/service/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cl/vicoga/mockito/test/service/TestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cl/vicoga/mockito/test/service/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cl/vicoga/mockito/test/service/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/cl/vicoga/mockito/test/service/TestServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cl/vicoga/mockito/test/service/TestServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +59,7 @@
       <recent name="cl.vicoga.mockito.test.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestServiceImplTest">
+  <component name="RunManager" selected="JUnit.TestServiceImplTest.saveTestTest">
     <configuration name="TestServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Section38JAVAMaster" />
       <extension name="coverage">
@@ -66,22 +71,6 @@
       <option name="PACKAGE_NAME" value="cl.vicoga.mockito.test.service" />
       <option name="MAIN_CLASS_NAME" value="cl.vicoga.mockito.test.service.TestServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestServiceImplTest.findTestByNameEmptyList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Section38JAVAMaster" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cl.vicoga.mockito.test.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cl.vicoga.mockito.test.service" />
-      <option name="MAIN_CLASS_NAME" value="cl.vicoga.mockito.test.service.TestServiceImplTest" />
-      <option name="METHOD_NAME" value="findTestByNameEmptyList" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -134,13 +123,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestServiceImplTest.saveTestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Section38JAVAMaster" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cl.vicoga.mockito.test.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cl.vicoga.mockito.test.service" />
+      <option name="MAIN_CLASS_NAME" value="cl.vicoga.mockito.test.service.TestServiceImplTest" />
+      <option name="METHOD_NAME" value="saveTestTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestServiceImplTest.saveTestTest" />
         <item itemvalue="JUnit.TestServiceImplTest" />
         <item itemvalue="JUnit.TestServiceImplTest.findTestQuestionVerify" />
         <item itemvalue="JUnit.TestServiceImplTest.findTestQuestionVerifyNotExist" />
         <item itemvalue="JUnit.TestServiceImplTest.findTestQuestion" />
-        <item itemvalue="JUnit.TestServiceImplTest.findTestByNameEmptyList" />
       </list>
     </recent_temporary>
   </component>
