@@ -7,7 +7,6 @@
     <list default="true" id="3d925c54-df1f-400b-899a-3dac3ce38130" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/cl/vicoga/mockito/test/service/TestServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cl/vicoga/mockito/test/service/TestServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/cl/vicoga/mockito/test/service/TestServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/cl/vicoga/mockito/test/service/TestServiceImplTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +54,8 @@
       <recent name="cl.vicoga.mockito.test.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestServiceImplTest.findTestQuestionVerify">
-    <configuration name="TestServiceImplTest.findTestByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TestServiceImplTest">
+    <configuration name="TestServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Section38JAVAMaster" />
       <extension name="coverage">
         <pattern>
@@ -66,8 +65,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="cl.vicoga.mockito.test.service" />
       <option name="MAIN_CLASS_NAME" value="cl.vicoga.mockito.test.service.TestServiceImplTest" />
-      <option name="METHOD_NAME" value="findTestByName" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestServiceImplTest" />
         <item itemvalue="JUnit.TestServiceImplTest.findTestQuestionVerify" />
         <item itemvalue="JUnit.TestServiceImplTest.findTestQuestionVerifyNotExist" />
         <item itemvalue="JUnit.TestServiceImplTest.findTestQuestion" />
         <item itemvalue="JUnit.TestServiceImplTest.findTestByNameEmptyList" />
-        <item itemvalue="JUnit.TestServiceImplTest.findTestByName" />
       </list>
     </recent_temporary>
   </component>

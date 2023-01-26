@@ -4,6 +4,11 @@ import cl.vicoga.mockito.test.repository.QuestionRepository;
 import cl.vicoga.mockito.test.repository.TestRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.*;
 
@@ -11,16 +16,24 @@ import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@ExtendWith(MockitoExtension.class)
 class TestServiceImplTest {
+    @Mock
     TestRepository repository;
-    TestService service;
+
+    @InjectMocks
+    TestServiceImpl service;
+    @Mock
     QuestionRepository questionRepository;
     @BeforeEach
     void setUp() {
-        repository = mock(TestRepository.class);
-        questionRepository=mock(QuestionRepository.class);
-        service= new TestServiceImpl(repository,questionRepository);
+
+        //MockitoAnnotations.openMocks(this);
+
+
+//        repository = mock(TestRepository.class);
+//        questionRepository=mock(QuestionRepository.class);
+//        service= new TestServiceImpl(repository,questionRepository);
     }
 
     @Test
