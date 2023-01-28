@@ -18,6 +18,7 @@ public class GetParamServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
 
         String greet= req.getParameter("greet");
+        String name = req.getParameter("name");
 
         out.print("<!DOCTYPE html>");
         out.print("<html>");
@@ -27,7 +28,14 @@ public class GetParamServlet extends HttpServlet {
         out.print("</head>");
         out.print("<body>");
         out.print("<h1>Get Param</h1>");
-        out.print("<h2>"+greet+"</h2>");
+        if(greet!=null && name!=null){
+            out.print("<h2>"+greet+" "+name+"</h2>");
+        } else if (greet!=null) {
+            out.print("<h2>"+greet+"</h2>");
+        }else {
+            out.print("<h2>no greet for you</h2>");
+        }
+
         out.print("</body>");
         out.print("</html>");
     }
