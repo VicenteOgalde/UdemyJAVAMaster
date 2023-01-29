@@ -53,6 +53,7 @@ public class FormServlet extends HttpServlet {
 
 
         resp.setContentType("text/html");
+            if(errors.isEmpty()) {
         try(PrintWriter out = resp.getWriter()) {
             out.print("<!DOCTYPE html>");
             out.print("<html>");
@@ -64,7 +65,6 @@ public class FormServlet extends HttpServlet {
             out.print("<h1>Form</h1>");
             out.print("<ul>");
 
-            if(errors.isEmpty()) {
 
                 out.print("<li>User: " + user + "</li>");
                 out.print("<li>Pass: " + pass + "</li>");
@@ -79,13 +79,19 @@ public class FormServlet extends HttpServlet {
                 out.print("<li>Enabled: " + enable + "</li>");
                 out.print("<li>Secret: " + secret + "</li>");
                 out.print("</ul></li>");
-            }else{
-                errors.forEach(e->out.print("<li>"+e+"</li>"));
-                out.print("<p><a href=\"/Section41JAVAMaster\">Home</a></p>");
-            }
+
             out.print("</ul>");
             out.print("</body>");
             out.print("</html>");
         }
+            }else{
+                /*
+                errors.forEach(e->out.print("<li>"+e+"</li>"));
+                out.print("<p><a href=\"/Section41JAVAMaster\">Home</a></p>");
+            */
+                req.setAttribute("errors",errors);
+                getServletContext().getRequestDispatcher("/index.jsp")
+                        .forward(req,resp);
+            }
     }
 }
