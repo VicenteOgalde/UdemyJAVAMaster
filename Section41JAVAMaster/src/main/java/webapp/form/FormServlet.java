@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 
 @WebServlet("/register")
 public class FormServlet extends HttpServlet {
@@ -17,6 +18,9 @@ public class FormServlet extends HttpServlet {
         String user = req.getParameter("username");
         String pass= req.getParameter("pass");
         String email= req.getParameter("email");
+        String country= req.getParameter("country");
+        String [] languages= req.getParameterValues("language");
+        String[] roles= req.getParameterValues("roles");
 
 
         resp.setContentType("text/html");
@@ -30,9 +34,16 @@ public class FormServlet extends HttpServlet {
             out.print("<body>");
             out.print("<h1>Form</h1>");
             out.print("<ul>");
-            out.print("<li>"+user+"</li>");
-            out.print("<li>"+pass+"</li>");
-            out.print("<li>"+email+"</li>");
+            out.print("<li>User: "+user+"</li>");
+            out.print("<li>Pass: "+pass+"</li>");
+            out.print("<li>Email: "+email+"</li>");
+            out.print("<li>Country: "+country+"</li>");
+            out.print("<li>Languages: <ul>");
+            Arrays.asList(languages).forEach(l->out.print("<li>     "+l+"</li>"));
+            out.print("</ul></li>");
+            out.print("<li>Roles: <ul>");
+            Arrays.asList(roles).forEach(r->out.print("<li>     "+r+"</li>"));
+            out.print("</ul></li>");
             out.print("</ul>");
             out.print("</body>");
             out.print("</html>");
