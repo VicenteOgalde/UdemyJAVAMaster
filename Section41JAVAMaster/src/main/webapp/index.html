@@ -21,6 +21,42 @@
             <div><input type="text" name="email" id="email"></div>
         </div>
         <div>
+            <label for="country">Country</label>
+            <div>
+            <select name="country" id="country">
+                <option value="">--Select--</option>
+                <option value="SP">Spain</option>
+                <option value="CL">Chile</option>
+                <option value="USA">United States</option>
+            </select>
+            </div>
+        </div>
+        <div>
+            <label for="language">Language</label>
+            <div>
+                <select name="language" id="language" multiple>
+                    <option value="java">JAVA SE</option>
+                    <option value="js">JavaScript</option>
+                    <option value="spring">Spring FrameWork</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label >Roles</label>
+            <div>
+                <input type="checkbox" name="roles" value="ROLE_ADM">
+                <label>Admin</label>
+            </div>
+            <div>
+                <input type="checkbox" name="roles"  value="ROLE_USER">
+                <label>User</label>
+            </div>
+            <div>
+                <input type="checkbox" name="roles"  value="ROLE_MOD">
+                <label>Moderator</label>
+            </div>
+        </div>
+        <div>
             <div><input type="submit" value="Send"></div>
         </div>
     </form>
