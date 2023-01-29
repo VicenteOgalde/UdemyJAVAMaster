@@ -8,7 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @WebServlet("/register")
 public class FormServlet extends HttpServlet {
@@ -25,6 +27,30 @@ public class FormServlet extends HttpServlet {
         String secret= req.getParameter("secret");
         String enable= req.getParameter("enable");
 
+        List<String> errors= new ArrayList<>();
+
+        if(user==null||user.isBlank()){
+            errors.add("user required");
+        }
+        if(pass==null||pass.isBlank()){
+            errors.add("pass required");
+        }
+        if(email==null||!email.contains("@")){
+            errors.add("email wrong");
+        }
+        if(country==null||country.isBlank()){
+            errors.add("country required");
+        }
+        if(languages==null||languages.length==0){
+            errors.add("select a language please");
+        }
+        if(roles==null||roles.length==0){
+            errors.add("select a role please");
+        }
+        if(lang==null){
+            errors.add("language required");
+        }
+
 
         resp.setContentType("text/html");
         try(PrintWriter out = resp.getWriter()) {
@@ -37,19 +63,26 @@ public class FormServlet extends HttpServlet {
             out.print("<body>");
             out.print("<h1>Form</h1>");
             out.print("<ul>");
-            out.print("<li>User: "+user+"</li>");
-            out.print("<li>Pass: "+pass+"</li>");
-            out.print("<li>Email: "+email+"</li>");
-            out.print("<li>Country: "+country+"</li>");
-            out.print("<li>Languages: <ul>");
-            Arrays.asList(languages).forEach(l->out.print("<li>     "+l+"</li>"));
-            out.print("</ul></li>");
-            out.print("<li>Roles: <ul>");
-            Arrays.asList(roles).forEach(r->out.print("<li>     "+r+"</li>"));
-            out.print("<li>Lang: "+lang+"</li>");
-            out.print("<li>Enabled: "+enable+"</li>");
-            out.print("<li>Secret: "+secret+"</li>");
-            out.print("</ul></li>");
+
+            if(errors.isEmpty()) {
+
+                out.print("<li>User: " + user + "</li>");
+                out.print("<li>Pass: " + pass + "</li>");
+                out.print("<li>Email: " + email + "</li>");
+                out.print("<li>Country: " + country + "</li>");
+                out.print("<li>Languages: <ul>");
+                Arrays.asList(languages).forEach(l -> out.print("<li>     " + l + "</li>"));
+                out.print("</ul></li>");
+                out.print("<li>Roles: <ul>");
+                Arrays.asList(roles).forEach(r -> out.print("<li>     " + r + "</li>"));
+                out.print("<li>Lang: " + lang + "</li>");
+                out.print("<li>Enabled: " + enable + "</li>");
+                out.print("<li>Secret: " + secret + "</li>");
+                out.print("</ul></li>");
+            }else{
+                errors.forEach(e->out.print("<li>"+e+"</li>"));
+                out.print("<p><a href=\"/Section41JAVAMaster\">Home</a></p>");
+            }
             out.print("</ul>");
             out.print("</body>");
             out.print("</html>");
