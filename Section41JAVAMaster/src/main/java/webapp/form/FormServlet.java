@@ -8,9 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @WebServlet("/register")
 public class FormServlet extends HttpServlet {
@@ -27,28 +25,28 @@ public class FormServlet extends HttpServlet {
         String secret= req.getParameter("secret");
         String enable= req.getParameter("enable");
 
-        List<String> errors= new ArrayList<>();
+        Map<String,String> errors= new HashMap<>();
 
         if(user==null||user.isBlank()){
-            errors.add("user required");
+            errors.put("user","user required");
         }
         if(pass==null||pass.isBlank()){
-            errors.add("pass required");
+            errors.put("pass","pass required");
         }
         if(email==null||!email.contains("@")){
-            errors.add("email wrong");
+            errors.put("email","email wrong");
         }
         if(country==null||country.isBlank()){
-            errors.add("country required");
+            errors.put("country","country required");
         }
         if(languages==null||languages.length==0){
-            errors.add("select a language please");
+            errors.put("language","select a language please");
         }
         if(roles==null||roles.length==0){
-            errors.add("select a role please");
+            errors.put("role","select a role please");
         }
         if(lang==null){
-            errors.add("language required");
+            errors.put("lang","language required");
         }
 
 
