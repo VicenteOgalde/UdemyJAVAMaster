@@ -28,7 +28,7 @@ if(errors!=null&&errors.size()>0){
 
         <div>
             <label for="username">User</label>
-            <div><input type="text" name="username" id="username"></div>
+            <div><input type="text" name="username" id="username" value="${param.user}"></div>
             <%
             if(errors!=null&&errors.containsKey("user")){
                 out.println("<small style='color:red;'>"+errors.get("user")+"</small>");
@@ -46,7 +46,7 @@ if(errors!=null&&errors.size()>0){
         </div>
         <div>
             <label for="email">Email</label>
-            <div><input type="text" name="email" id="email"></div>
+            <div><input type="text" name="email" id="email" value="${param.email}"></div>
              <%
                         if(errors!=null&&errors.containsKey("email")){
                             out.println("<small style='color:red;'>"+errors.get("email")+"</small>");
@@ -58,9 +58,9 @@ if(errors!=null&&errors.size()>0){
             <div>
             <select name="country" id="country">
                 <option value="">--Select--</option>
-                <option value="SP">Spain</option>
-                <option value="CL">Chile</option>
-                <option value="USA">United States</option>
+                <option value="SP" ${param.country.equals("SP")?"selected":""}>Spain</option>
+                <option value="CL" ${param.country.equals("CL")?"selected":""}>Chile</option>
+                <option value="USA" ${param.country.equals("USA")?"selected":""}>United States</option>
             </select>
             </div>
              <%
@@ -73,9 +73,12 @@ if(errors!=null&&errors.size()>0){
             <label for="language">Programming Language</label>
             <div>
                 <select name="language" id="language" multiple>
-                    <option value="java">JAVA SE</option>
-                    <option value="js">JavaScript</option>
-                    <option value="spring">Spring FrameWork</option>
+                    <option value="java" ${paramValues.language
+                    .stream().anyMatch(v->v.equals("java")).get()?"selected":""}>JAVA SE</option>
+                    <option value="js" ${paramValues.language
+                     .stream().anyMatch(v->v.equals("js")).get()?"selected":""}>JavaScript</option>
+                    <option value="spring" ${paramValues.language
+                     .stream().anyMatch(v->v.equals("spring")).get()?"selected":""}>Spring FrameWork</option>
                 </select>
             </div>
              <%
@@ -87,15 +90,21 @@ if(errors!=null&&errors.size()>0){
         <div>
             <label >Roles</label>
             <div>
-                <input type="checkbox" name="roles" value="ROLE_ADM">
+                <input type="checkbox" name="roles" value="ROLE_ADM"
+                ${paramValues.roles.stream().anyMatch(v->v.equals("ROLE_ADM")).get()?"checked":""}
+                >
                 <label>Admin</label>
             </div>
             <div>
-                <input type="checkbox" name="roles"  value="ROLE_USER">
+                <input type="checkbox" name="roles"  value="ROLE_USER"
+                 ${paramValues.roles.stream().anyMatch(v->v.equals("ROLE_USER")).get()?"checked":""}
+                >
                 <label>User</label>
             </div>
             <div>
-                <input type="checkbox" name="roles"  value="ROLE_MOD">
+                <input type="checkbox" name="roles"  value="ROLE_MOD"
+                 ${paramValues.roles.stream().anyMatch(v->v.equals("ROLE_MOD")).get()?"checked":""}
+                >
                 <label>Moderator</label>
             </div>
              <%
@@ -107,15 +116,15 @@ if(errors!=null&&errors.size()>0){
         <div>
             <label>Language</label>
             <div>
-                <input type="radio" name="lang" value="sp">
+                <input type="radio" name="lang" value="sp" ${param.lang.equals("sp")?"checked":""}>
                 <label>Spanish</label>
             </div>
             <div>
-                <input type="radio" name="lang" value="ch">
+                <input type="radio" name="lang" value="ch" ${param.lang.equals("ch")?"checked":""}>
                 <label>Chinese</label>
             </div>
             <div>
-                <input type="radio" name="lang" value="en">
+                <input type="radio" name="lang" value="en" ${param.lang.equals("en")?"checked":""}>
                 <label>English</label>
             </div>
              <%
