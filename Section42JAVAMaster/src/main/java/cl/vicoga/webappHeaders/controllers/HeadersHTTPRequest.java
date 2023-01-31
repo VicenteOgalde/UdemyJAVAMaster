@@ -1,4 +1,4 @@
-package cl.vicoga.webappHeaders;
+package cl.vicoga.webappHeaders.controllers;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
