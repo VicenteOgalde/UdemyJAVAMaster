@@ -1,6 +1,7 @@
+cl\vicoga\webappHeaders\service\ProductServiceImpl.class
+cl\vicoga\webappHeaders\controllers\HourUpdatedServlet.class
+cl\vicoga\webappHeaders\models\Product.class
 cl\vicoga\webappHeaders\controllers\HeadersHTTPRequest.class
 cl\vicoga\webappHeaders\service\ProductService.class
-cl\vicoga\webappHeaders\service\ProductServiceImpl.class
 cl\vicoga\webappHeaders\controllers\ProductXLSServlet.class
-cl\vicoga\webappHeaders\models\Product.class
 cl\vicoga\webappHeaders\controllers\ProductJsonServlet.class
