@@ -40,7 +40,7 @@ public class ProductServlet extends HttpServlet {
             out.print("</head>");
             out.print("<body>");
             out.print("<h1>Product List</h1>");
-            if(user.isPresent()) out.print("<h4>complete data for "+user.get()+"</h4>");
+            user.ifPresent(s -> out.print("<h4>complete data for " + s + "</h4>"));
             out.print("<table>");
             out.print("<tr>");
             out.print("<th>Id</th>");
@@ -63,7 +63,10 @@ public class ProductServlet extends HttpServlet {
 
 
             out.print("</table>");
-
+            out.print("<p><a href=\""+req.getContextPath()+"/index.html\">Home</a></p>");
+            if(user.isPresent()) {
+                out.print("<p><a href=\"" + req.getContextPath() + "/logout\">Logout</a></p>");
+            }
             out.print("</body>");
             out.print("</html>");
 
