@@ -1,5 +1,7 @@
 package cl.vicoga.webappHeaders.controllers;
 
+import cl.vicoga.webappHeaders.service.LoginService;
+import cl.vicoga.webappHeaders.service.LoginServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -20,8 +22,8 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Cookie[]cookies= req.getCookies()!=null?req.getCookies():new Cookie[0];
-        Optional<Cookie>cookie= Arrays.stream(cookies).filter(c->c.getName().equals("user")).findFirst();
+        LoginService loginService= new LoginServiceImpl();
+        Optional<String>cookie= loginService.getUsername(req);
 
         if(cookie.isPresent()){
             resp.setContentType("text/html; charset=UTF-8");
@@ -30,10 +32,10 @@ public class LoginServlet extends HttpServlet {
                 out.print("<html>");
                 out.print("<head>");
                 out.print("<meta charset=\"UTF-8\">");
-                out.print("<title>Welcome "+cookie.get().getValue()+"</title>");
+                out.print("<title>Welcome "+cookie.get()+"</title>");
                 out.print("</head>");
                 out.print("<body>");
-                out.print("<h1>Welcome "+cookie.get().getValue()+"</h1>");
+                out.print("<h1>Welcome "+cookie.get()+"</h1>");
                 out.print("</body>");
                 out.print("</html>");
             }
