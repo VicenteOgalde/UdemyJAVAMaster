@@ -1,8 +1,9 @@
 cl\vicoga\webappHeaders\service\ProductServiceImpl.class
+cl\vicoga\webappHeaders\service\LoginServiceCookieImpl.class
 cl\vicoga\webappHeaders\controllers\ProductServlet.class
 cl\vicoga\webappHeaders\controllers\LoginServlet.class
 cl\vicoga\webappHeaders\models\Product.class
 cl\vicoga\webappHeaders\service\ProductService.class
 cl\vicoga\webappHeaders\controllers\LogoutServlet.class
-cl\vicoga\webappHeaders\service\LoginServiceImpl.class
+cl\vicoga\webappHeaders\service\LoginServiceSessionImpl.class
 cl\vicoga\webappHeaders\service\LoginService.class

@@ -1,20 +1,15 @@
 package cl.vicoga.webappHeaders.controllers;
 
 import cl.vicoga.webappHeaders.models.Product;
-import cl.vicoga.webappHeaders.service.LoginService;
-import cl.vicoga.webappHeaders.service.LoginServiceImpl;
-import cl.vicoga.webappHeaders.service.ProductService;
-import cl.vicoga.webappHeaders.service.ProductServiceImpl;
+import cl.vicoga.webappHeaders.service.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +20,7 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProductService service = new ProductServiceImpl();
         List<Product> products = service.findAll();
-        LoginService loginService= new LoginServiceImpl();
+        LoginService loginService= new LoginServiceSessionImpl();
         Optional<String> user= loginService.getUsername(req);
         resp.setContentType("text/html; charset=UTF-8");
 

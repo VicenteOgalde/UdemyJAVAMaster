@@ -1,7 +1,8 @@
 package cl.vicoga.webappHeaders.controllers;
 
 import cl.vicoga.webappHeaders.service.LoginService;
-import cl.vicoga.webappHeaders.service.LoginServiceImpl;
+import cl.vicoga.webappHeaders.service.LoginServiceCookieImpl;
+import cl.vicoga.webappHeaders.service.LoginServiceSessionImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -17,12 +18,14 @@ public class LogoutServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        LoginService loginService = new LoginServiceImpl();
+        LoginService loginService = new LoginServiceSessionImpl();
         Optional<String> user=loginService.getUsername(req);
         if(user.isPresent()){
-            Cookie cookie= new Cookie("user","");
+            req.getSession().invalidate();
+
+         /*   Cookie cookie= new Cookie("user","");
             cookie.setMaxAge(0);
-            resp.addCookie(cookie);
+            resp.addCookie(cookie);*/
 
         }
         resp.sendRedirect(req.getContextPath()+"/login.html");
