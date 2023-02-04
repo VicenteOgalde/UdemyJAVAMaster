@@ -23,6 +23,7 @@ public class ShopCar {
 
             this.shopCar.add(item);
         }
+
         return this;
     }
     public int getTotal(){
