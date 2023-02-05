@@ -1,5 +1,6 @@
 package cl.vicoga.webappHeaders.filters;
 
+import cl.vicoga.webappHeaders.service.ServiceJDBCException;
 import cl.vicoga.webappHeaders.utils.ConnexionBDMysql;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
@@ -22,7 +23,7 @@ public class ConnexionFilter implements Filter {
                 servletRequest.setAttribute("conn",conn);
                 filterChain.doFilter(servletRequest, servletResponse);
                 conn.commit();
-            } catch (SQLException se) {
+            } catch (SQLException |ServiceJDBCException se) {
                 conn.rollback();
                 ((HttpServletResponse) servletResponse).sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, se.getMessage());
                 se.printStackTrace();
