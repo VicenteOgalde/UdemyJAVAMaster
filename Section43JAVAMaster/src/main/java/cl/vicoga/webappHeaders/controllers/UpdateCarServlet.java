@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 
-@WebServlet("/update-car")
+@WebServlet("/car/update")
 public class UpdateCarServlet extends HttpServlet {
 
     @Override
@@ -26,7 +26,7 @@ public class UpdateCarServlet extends HttpServlet {
             updateAmounts(req, car);
         }
 
-        resp.sendRedirect(req.getContextPath() + "/show-car");
+        resp.sendRedirect(req.getContextPath() + "/car/show");
     }
 
     private void updateProducts(HttpServletRequest request, ShopCar car) {

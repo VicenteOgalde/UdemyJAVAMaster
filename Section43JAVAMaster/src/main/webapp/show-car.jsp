@@ -13,7 +13,7 @@ ShopCar car=(ShopCar) session.getAttribute("car");
 <% if(car==null || car.getShopCar().isEmpty()){ %>
 <h3>No products in the car.</h3>
 <%} else{%>
-<form name="form-car" action="<%=request.getContextPath()%>/update-car" method="post">
+<form name="form-car" action="<%=request.getContextPath()%>/car/update" method="post">
 <table>
     <tr>
         <th>Id</th>
