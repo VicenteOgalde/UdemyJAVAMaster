@@ -18,7 +18,7 @@ public class ProductRepositoryImpl implements Repository<Product>{
     public List<Product> findAll() throws SQLException {
         List<Product> products= new ArrayList<>();
         try(Statement st= conn.createStatement();
-            ResultSet rs=st.executeQuery("select * from product")) {
+            ResultSet rs=st.executeQuery("select * from products")) {
 
             while (rs.next()) {
 
@@ -35,8 +35,8 @@ public class ProductRepositoryImpl implements Repository<Product>{
     @Override
     public Product findById(Long id) throws SQLException {
 
-        try(PreparedStatement ps= conn.prepareStatement("select * from product where" +
-                " product.id=?")){
+        try(PreparedStatement ps= conn.prepareStatement("select * from products where" +
+                " products.id=?")){
             ps.setLong(1,id);
             ResultSet rs=ps.executeQuery();
             if(rs.next()) return mapResulSetToProduct(rs);
