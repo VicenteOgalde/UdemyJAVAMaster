@@ -2,6 +2,8 @@ cl\vicoga\webappHeaders\models\ShopCar.class
 cl\vicoga\webappHeaders\service\LoginServiceCookieImpl.class
 cl\vicoga\webappHeaders\controllers\ProductServlet.class
 cl\vicoga\webappHeaders\controllers\LoginServlet.class
+cl\vicoga\webappHeaders\filters\LoginFilter.class
+cl\vicoga\webappHeaders\controllers\UpdateCarServlet.class
 cl\vicoga\webappHeaders\listeners\AppListeners.class
 cl\vicoga\webappHeaders\service\LoginServiceSessionImpl.class
 cl\vicoga\webappHeaders\controllers\AddCarServlet.class

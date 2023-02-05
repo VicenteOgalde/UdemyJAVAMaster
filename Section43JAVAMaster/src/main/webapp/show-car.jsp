@@ -13,6 +13,7 @@ ShopCar car=(ShopCar) session.getAttribute("car");
 <% if(car==null || car.getShopCar().isEmpty()){ %>
 <h3>No products in the car.</h3>
 <%} else{%>
+<form name="form-car" action="<%=request.getContextPath()%>/update-car" method="post">
 <table>
     <tr>
         <th>Id</th>
@@ -20,14 +21,16 @@ ShopCar car=(ShopCar) session.getAttribute("car");
         <th>Price</th>
         <th>Amount</th>
         <th>Total</th>
+         <th>Delete</th>
     </tr>
     <% for(ItemCar s:car.getShopCar()){ %>
      <tr>
             <td><%=s.getProduct().getId()%></td>
             <td><%=s.getProduct().getName()%></td>
             <td><%=s.getProduct().getPrice()%></td>
-            <td><%=s.getNumberOfItems()%></td>
+            <td><input type="text" size="4" name="amount_<%=s.getProduct().getId()%>" value="<%=s.getNumberOfItems()%>" /></td>
             <td><%=s.getTotal()%></td>
+            <td><input type="checkbox" value="<%=s.getProduct().getId()%>" name="deleteProducts" /></td>
         </tr>
          <% } %>
          <tr>
@@ -35,7 +38,8 @@ ShopCar car=(ShopCar) session.getAttribute("car");
              <td><%=car.getTotal()%></td>
          </tr>
 </table>
-
+<input type="submit" value="Update">
+</form>
 <%}%>
 <br>
 <a href="<%=request.getContextPath()%>/products.html">Product</a>
