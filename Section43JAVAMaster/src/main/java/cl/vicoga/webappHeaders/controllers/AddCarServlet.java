@@ -27,13 +27,8 @@ public class AddCarServlet extends HttpServlet {
         if(opProduct.isPresent()){
             ItemCar itemCar= new ItemCar(1,opProduct.get());
             HttpSession session = req.getSession();
-            ShopCar car;
-            if(session.getAttribute("car")==null){
-                car=new ShopCar();
-                session.setAttribute("car",car);
-            }else {
-                car=(ShopCar) session.getAttribute("car");
-            }
+            ShopCar car=(ShopCar) session.getAttribute("car");
+
             car.addItem(itemCar);
         }
         resp.sendRedirect(req.getContextPath()+"/show-car");

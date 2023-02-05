@@ -1,5 +1,6 @@
 package cl.vicoga.webappHeaders.listeners;
 
+import cl.vicoga.webappHeaders.models.ShopCar;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.http.HttpSessionEvent;
@@ -12,6 +13,7 @@ public class AppListeners implements ServletContextListener, ServletRequestListe
     public void contextInitialized(ServletContextEvent sce) {
         sce.getServletContext().log("Starting app");
         context= sce.getServletContext();
+        context.setAttribute("message","global message!");
 
     }
 
@@ -23,6 +25,7 @@ public class AppListeners implements ServletContextListener, ServletRequestListe
     @Override
     public void requestDestroyed(ServletRequestEvent sre) {
         context.log("Ending request");
+        sre.getServletRequest().setAttribute("message","some value for request");
 
     }
 
@@ -34,6 +37,8 @@ public class AppListeners implements ServletContextListener, ServletRequestListe
     @Override
     public void sessionCreated(HttpSessionEvent se) {
         context.log("Starting session");
+        ShopCar car= new ShopCar();
+        se.getSession().setAttribute("car",car);
     }
 
     @Override

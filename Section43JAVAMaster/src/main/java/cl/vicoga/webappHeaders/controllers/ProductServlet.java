@@ -24,6 +24,8 @@ public class ProductServlet extends HttpServlet {
         Optional<String> user= loginService.getUsername(req);
         resp.setContentType("text/html; charset=UTF-8");
 
+        String  messageRequest=(String) req.getAttribute("message");
+        String messageGlobal=(String) getServletContext().getAttribute("message");
 
         try (PrintWriter out = resp.getWriter()) {
 
@@ -61,6 +63,8 @@ public class ProductServlet extends HttpServlet {
 
 
             out.print("</table>");
+            out.print("<p>Global: "+messageGlobal+"</p>");
+            out.print("<p>Request: "+messageRequest+"</p>");
             out.print("<p><a href=\""+req.getContextPath()+"/index.html\">Home</a></p>");
             if(user.isPresent()) {
                 out.print("<p><a href=\"" + req.getContextPath() + "/logout\">Logout</a></p>");
