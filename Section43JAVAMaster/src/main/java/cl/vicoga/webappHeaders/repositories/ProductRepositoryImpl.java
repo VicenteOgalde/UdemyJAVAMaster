@@ -48,12 +48,39 @@ public class ProductRepositoryImpl implements Repository<Product>{
 
     @Override
     public void save(Product product) throws SQLException {
+        String sql;
+        if(product.getId()!=null&&product.getId()>0){
+            sql="update products set name=?,type=?,price=?  where id=?";
+            try(PreparedStatement ps= conn.prepareStatement(sql)){
+                ps.setString(1,product.getName());
+                ps.setString(2,product.getType());
+                ps.setInt(3,product.getPrice());
+                ps.setLong(4,product.getId());
+                ps.executeUpdate();
+            }
+        }else{
+            sql="insert into products(id,name,type,price) values" +
+                    "(?,?,?,?)";
+            try(PreparedStatement ps= conn.prepareStatement(sql)){
+                ps.setLong(1,product.getId());
+                ps.setString(2,product.getName());
+                ps.setString(3,product.getType());
+                ps.setInt(4,product.getPrice());
+                ps.executeUpdate();
+            }
+        }
+
+
 
     }
 
     @Override
     public void deleteById(Long id) throws SQLException {
-
+        String sql="delete * from products where products.id=?";
+        try(PreparedStatement ps= conn.prepareStatement(sql)){
+            ps.setLong(1,id);
+            ps.executeUpdate();
+        }
     }
 
     private Product mapResulSetToProduct(ResultSet rs) throws SQLException {

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ProductServiceJDBCImpl implements ProductService{
-    private ProductRepositoryImpl repository;
+    private Repository<Product> repository;
 
     public ProductServiceJDBCImpl(Connection conn) {
         this.repository= new ProductRepositoryImpl(conn);
@@ -33,4 +33,24 @@ public class ProductServiceJDBCImpl implements ProductService{
             throw new ServiceJDBCException(e.getMessage(),e.getCause());
         }
     }
+
+    @Override
+    public void save(Product product) {
+        try {
+            repository.save(product);
+        } catch (SQLException e) {
+            throw new ServiceJDBCException(e.getMessage(),e.getCause());
+        }
+
+    }
+
+    @Override
+    public void delete(Long id) {
+        try {
+            repository.deleteById(id);
+        } catch (SQLException e) {
+            throw new ServiceJDBCException(e.getMessage(),e.getCause());
+        }
+    }
+
 }

@@ -19,4 +19,14 @@ public class ProductServiceImpl implements ProductService{
     public Optional<Product> findById(Long id) {
         return findAll().stream().filter(p->p.getId().equals(id)).findAny();
     }
+
+    @Override
+    public void save(Product product) {
+
+    }
+
+    @Override
+    public void delete(Long id) {
+
+    }
 }
