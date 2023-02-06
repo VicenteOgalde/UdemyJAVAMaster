@@ -14,6 +14,9 @@ Optional<String> user= (Optional<String>) request.getAttribute("user");
 </head>
 <body>
 <h1>Product List</h1>
+ <% if(user.isPresent()){%>
+    <p><a href="<%=request.getContextPath()%>/products/form">Create a Product</a></p>
+ <%}%>
 <table>
     <tr>
         <th>Id</th>

@@ -13,6 +13,7 @@ cl\vicoga\webappHeaders\controllers\AddCarServlet.class
 cl\vicoga\webappHeaders\service\ProductServiceJDBCImpl.class
 cl\vicoga\webappHeaders\service\LoginService.class
 cl\vicoga\webappHeaders\service\ProductServiceImpl.class
+cl\vicoga\webappHeaders\controllers\ProductFormServlet.class
 cl\vicoga\webappHeaders\filters\ConnexionFilter.class
 cl\vicoga\webappHeaders\controllers\ShowCarServlet.class
 cl\vicoga\webappHeaders\models\Product.class
