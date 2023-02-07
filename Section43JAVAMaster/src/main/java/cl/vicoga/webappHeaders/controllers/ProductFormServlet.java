@@ -11,6 +11,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @WebServlet("/products/form")
@@ -20,28 +22,48 @@ public class ProductFormServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        getServletContext().getRequestDispatcher("/form.jsp").forward(req,resp);
+        getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Connection conn=(Connection) req.getAttribute("conn");
-        ProductService service= new ProductServiceJDBCImpl(conn);
-        int price;
-        try{
-            price=Integer.parseInt(req.getParameter("price"));
-        }catch (NumberFormatException e){
-            price=0;
-        }
-        service.save(
-                new Product(null,
-                        req.getParameter("name"),
-                        req.getParameter("type"),
-                        price)
-        );
-        resp.sendRedirect(req.getContextPath()+"/products");
+        Connection conn = (Connection) req.getAttribute("conn");
+        ProductService service = new ProductServiceJDBCImpl(conn);
 
+        String name = req.getParameter("name");
+        String type = req.getParameter("type");
+        int price;
+        try {
+            price = Integer.parseInt(req.getParameter("price"));
+        } catch (NumberFormatException e) {
+
+            price = 0;
+        }
+        Map<String, String> errors = new HashMap<>();
+
+        if (name == null || name.isBlank()) {
+            errors.put("name", "name required");
+        }
+        if (type == null || type.isBlank()) {
+            errors.put("type", "type required");
+        }
+        if (price == 0) {
+            errors.put("price", "wrong price");
+        }
+        if (errors.isEmpty()) {
+            service.save(
+                    new Product(null,
+                            name,
+                            type,
+                            price)
+            );
+            resp.sendRedirect(req.getContextPath() + "/products");
+        } else {
+            req.setAttribute("errors",errors);
+            doGet(req, resp);
+
+        }
     }
 }

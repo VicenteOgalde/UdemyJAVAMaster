@@ -59,13 +59,13 @@ public class ProductRepositoryImpl implements Repository<Product>{
                 ps.executeUpdate();
             }
         }else{
-            sql="insert into products(id,name,type,price) values" +
-                    "(?,?,?,?)";
+            sql="insert into products(name,type,price) values" +
+                    "(?,?,?)";
             try(PreparedStatement ps= conn.prepareStatement(sql)){
-                ps.setLong(1,product.getId());
-                ps.setString(2,product.getName());
-                ps.setString(3,product.getType());
-                ps.setInt(4,product.getPrice());
+
+                ps.setString(1,product.getName());
+                ps.setString(2,product.getType());
+                ps.setInt(3,product.getPrice());
                 ps.executeUpdate();
             }
         }
