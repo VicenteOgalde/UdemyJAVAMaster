@@ -25,6 +25,7 @@ Optional<String> user= (Optional<String>) request.getAttribute("user");
         <% if(user.isPresent()){%>
         <th>Price</th>
         <th>Add</th>
+        <th>Edit</th>
         <%}%>
     </tr>
     <% for(Product p:products){ %>
@@ -36,6 +37,7 @@ Optional<String> user= (Optional<String>) request.getAttribute("user");
         <% if(user.isPresent()){%>
         <td><%=p.getPrice()%></td>
         <td><a href="<%=request.getContextPath()%>/car/add?id=<%=p.getId()%>">Add to Car</a></td>
+        <td><a href="<%=request.getContextPath()%>/products/form?id=<%=p.getId()%>">Edit</a></td>
         <%}%>
     </tr>
     <%}%>

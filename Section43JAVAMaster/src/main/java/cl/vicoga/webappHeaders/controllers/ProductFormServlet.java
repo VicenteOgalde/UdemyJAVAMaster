@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 
 @WebServlet("/products/form")
@@ -22,8 +23,24 @@ public class ProductFormServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
+        Connection conn=(Connection)req.getAttribute("conn");
+        ProductService service= new ProductServiceJDBCImpl(conn);
+        Long id;
+        try {
+           id= Long.parseLong(req.getParameter("id"));
 
+        }catch (NumberFormatException e){
+            id=0l;
+        }
+        Product product= new Product();
+        if(id>0){
+           Optional<Product> op=service.findById(id);
+            if(op.isPresent()){
+                product=op.get();
+            }
+        }
+        req.setAttribute("product",product);
+        getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
     }
 
     @Override
@@ -52,9 +69,15 @@ public class ProductFormServlet extends HttpServlet {
         if (price == 0) {
             errors.put("price", "wrong price");
         }
+        Long id;
+        try {
+            id = Long.parseLong(req.getParameter("id"));
+        } catch (NumberFormatException e){
+            id = 0L;
+        }
         if (errors.isEmpty()) {
             service.save(
-                    new Product(null,
+                    new Product(id,
                             name,
                             type,
                             price)
