@@ -75,17 +75,13 @@ public class ProductFormServlet extends HttpServlet {
         } catch (NumberFormatException e){
             id = 0L;
         }
+        Product product= new Product(id,name,type,price);
         if (errors.isEmpty()) {
-            service.save(
-                    new Product(id,
-                            name,
-                            type,
-                            price)
-            );
+            service.save(product);
             resp.sendRedirect(req.getContextPath() + "/products");
         } else {
-            req.setAttribute("errors",errors);
-            doGet(req, resp);
+            req.setAttribute("product",product);
+            getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
 
         }
     }

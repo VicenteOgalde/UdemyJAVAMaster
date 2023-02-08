@@ -43,7 +43,7 @@
                         <%}%>
     </div>
     <div><input type="submit" value="Send" ></div>
-
+        <input type="hidden" name="id" value="<%=p.getId()%>">
 
 </form>
 
