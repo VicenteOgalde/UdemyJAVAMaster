@@ -1,5 +1,6 @@
 package cl.vicoga.webappHeaders.controllers;
 
+import cl.vicoga.webappHeaders.models.Product;
 import cl.vicoga.webappHeaders.service.ProductService;
 import cl.vicoga.webappHeaders.service.ProductServiceJDBCImpl;
 import jakarta.servlet.ServletException;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.Optional;
 
 @WebServlet("/products/delete")
 public class DeleteServlet extends HttpServlet {
@@ -24,9 +26,17 @@ public class DeleteServlet extends HttpServlet {
             id=0l;
         }
         if (id >0) {
-            service.delete(id);
+            Optional<Product> o=service.findById(id);
+            if(o.isPresent()) {
+                service.delete(id);
+                resp.sendRedirect(req.getContextPath()+"/products");
+            }else {
+                resp.sendError(HttpServletResponse.SC_NOT_FOUND,"Dont exist in the DB");
+            }
+        }else{
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND,"Id null");
         }
-       resp.sendRedirect(req.getContextPath()+"/products");
+
 
     }
 }
