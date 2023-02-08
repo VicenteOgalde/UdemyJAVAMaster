@@ -1,3 +1,4 @@
+cl\vicoga\webappHeaders\controllers\DeleteServlet.class
 cl\vicoga\webappHeaders\models\ShopCar.class
 cl\vicoga\webappHeaders\service\LoginServiceCookieImpl.class
 cl\vicoga\webappHeaders\controllers\ProductServlet.class

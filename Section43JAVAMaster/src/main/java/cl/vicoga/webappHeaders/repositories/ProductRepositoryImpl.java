@@ -77,7 +77,7 @@ public class ProductRepositoryImpl implements Repository<Product> {
 
     @Override
     public void deleteById(Long id) throws SQLException {
-        String sql = "delete * from products where products.id=?";
+        String sql = "delete from products where products.id=?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setLong(1, id);
             ps.executeUpdate();

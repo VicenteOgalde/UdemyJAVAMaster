@@ -26,6 +26,7 @@ Optional<String> user= (Optional<String>) request.getAttribute("user");
         <th>Price</th>
         <th>Add</th>
         <th>Edit</th>
+        <th>Delete</th>
         <%}%>
     </tr>
     <% for(Product p:products){ %>
@@ -38,6 +39,7 @@ Optional<String> user= (Optional<String>) request.getAttribute("user");
         <td><%=p.getPrice()%></td>
         <td><a href="<%=request.getContextPath()%>/car/add?id=<%=p.getId()%>">Add to Car</a></td>
         <td><a href="<%=request.getContextPath()%>/products/form?id=<%=p.getId()%>">Edit</a></td>
+        <td><a href="<%=request.getContextPath()%>/products/delete?id=<%=p.getId()%>">Delete</a></td>
         <%}%>
     </tr>
     <%}%>
