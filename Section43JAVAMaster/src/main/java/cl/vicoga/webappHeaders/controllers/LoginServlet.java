@@ -1,21 +1,20 @@
 package cl.vicoga.webappHeaders.controllers;
 
-import cl.vicoga.webappHeaders.service.LoginService;
-import cl.vicoga.webappHeaders.service.LoginServiceCookieImpl;
-import cl.vicoga.webappHeaders.service.LoginServiceSessionImpl;
+import cl.vicoga.webappHeaders.models.User;
+import cl.vicoga.webappHeaders.service.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.util.Optional;
 
 @WebServlet({"/login","/login.html"})
 public class LoginServlet extends HttpServlet {
 
-    final static String USER="admin";
-    final static String PASS="123";
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,12 +44,14 @@ public class LoginServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         String user= req.getParameter("user");
         String pass=req.getParameter("pass");
 
-        if(USER.equals(user)&& PASS.equals(pass)){
+        UserService service= new UserServiceImpl((Connection)req.getAttribute("conn"));
+        Optional<User> opUser= service.login(user,pass);
+        if(opUser.isPresent()){
             HttpSession session= req.getSession();
             session.setAttribute("user",user);
 
