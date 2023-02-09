@@ -1,6 +1,7 @@
 cl\vicoga\webappHeaders\controllers\DeleteServlet.class
 cl\vicoga\webappHeaders\models\ShopCar.class
 cl\vicoga\webappHeaders\repositories\Repository.class
+cl\vicoga\webappHeaders\utils\ConnexionBDMysqlDS.class
 cl\vicoga\webappHeaders\service\LoginServiceSessionImpl.class
 cl\vicoga\webappHeaders\controllers\AddCarServlet.class
 cl\vicoga\webappHeaders\service\LoginService.class
