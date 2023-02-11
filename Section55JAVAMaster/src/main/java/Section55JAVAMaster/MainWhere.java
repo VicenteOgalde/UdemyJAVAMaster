@@ -12,9 +12,11 @@ public class MainWhere {
     public static void main(String[] args) {
         EntityManager em = JpaUtil.getEntityManager();
         Query query =em.createQuery("select c from Client c where c.paymentMethod=?1",Client.class);
-        query.setParameter(1,"cash");
-        Client c=(Client) query.getSingleResult();
-        System.out.println(c);
+        query.setParameter(1,"debit");
+        List<Client>clients= query.getResultList();
+        System.out.println(clients);
+        Client c2= em.find(Client.class,1l);
+        System.out.println(c2);
         em.close();
     }
 }
