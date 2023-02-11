@@ -19,10 +19,15 @@ public class Client {
     }
 
     public Client(Long id, String name, String surname, String paymentMethod) {
+        this(name,surname,paymentMethod);
         this.id = id;
+
+    }
+
+    public Client(String name, String surname, String payment) {
         this.name = name;
         this.surname = surname;
-        this.paymentMethod = paymentMethod;
+        this.paymentMethod = payment;
     }
 
     public Long getId() {
