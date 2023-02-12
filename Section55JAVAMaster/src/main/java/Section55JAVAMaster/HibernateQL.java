@@ -58,5 +58,9 @@ public class HibernateQL {
                 "Client c", ClientDTO.class).getResultList();
         System.out.println(clientsDTO);
 
+
+
+        em.close();
+
     }
 }
