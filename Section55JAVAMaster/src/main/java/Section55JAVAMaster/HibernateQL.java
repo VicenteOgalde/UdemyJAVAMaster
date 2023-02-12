@@ -1,5 +1,6 @@
 package Section55JAVAMaster;
 
+import Section55JAVAMaster.dto.ClientDTO;
 import Section55JAVAMaster.entity.Client;
 import Section55JAVAMaster.util.JpaUtil;
 import jakarta.persistence.EntityManager;
@@ -34,8 +35,28 @@ public class HibernateQL {
         System.out.println("====personalized field List====");
         List<Object[]>lsClient=em.createQuery("select c.id,c.name from Client c",Object[].class).getResultList();
 
-        lsClient.forEach(l->Arrays.asList(l).forEach(System.out::println));
+        lsClient.forEach(l->{
+            System.out.println(l[0]);
+            System.out.println(l[1]);
+        });
 
+        System.out.println("====personalized field List name and payment method====");
+
+        lsClient=em.createQuery("select c,c.paymentMethod from Client c",Object[].class).getResultList();
+
+        lsClient.forEach(e->{
+            System.out.println(e[0]);
+            System.out.println(e[1]);
+        });
+        System.out.println("====personalized object entity====");
+        clients=em.createQuery("select new Client(c.name,c.surname) from " +
+                "Client c",Client.class).getResultList();
+        System.out.println(clients);
+
+        System.out.println("====personalized object dto====");
+        List<ClientDTO>clientsDTO=em.createQuery("select new Section55JAVAMaster.dto.ClientDTO(c.name,c.surname) from " +
+                "Client c", ClientDTO.class).getResultList();
+        System.out.println(clientsDTO);
 
     }
 }

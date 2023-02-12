@@ -24,9 +24,13 @@ public class Client {
 
     }
 
-    public Client(String name, String surname, String payment) {
+    public Client(String name, String surname) {
         this.name = name;
         this.surname = surname;
+    }
+
+    public Client(String name, String surname, String payment) {
+        this(name,surname);
         this.paymentMethod = payment;
     }
 
