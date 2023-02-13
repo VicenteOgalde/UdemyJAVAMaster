@@ -3,6 +3,8 @@ package Section55JAVAMaster.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name="clients")
 public class Client {
@@ -14,6 +16,11 @@ public class Client {
     private String surname;
     @Column(name = "payment_method")
     private String paymentMethod;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
 
     public Client() {
     }
@@ -34,6 +41,16 @@ public class Client {
         this.paymentMethod = payment;
     }
 
+    @PrePersist
+    public void prePersist(){
+        System.out.println("init before persist");
+        this.createdAt=LocalDateTime.now();
+    }
+    @PreUpdate
+    public void preUpdate(){
+        System.out.println("init before Update");
+        this.updatedAt=LocalDateTime.now();
+    }
     public Long getId() {
         return id;
     }
@@ -66,6 +83,22 @@ public class Client {
         this.paymentMethod = paymentMethod;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -73,6 +106,7 @@ public class Client {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", paymentMethod='" + paymentMethod + '\'' +
+                ", created at='"+createdAt+'\''+", updated at='"+updatedAt+'\''+
                 '}';
     }
 }
