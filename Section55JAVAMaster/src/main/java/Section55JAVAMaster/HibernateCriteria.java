@@ -32,6 +32,22 @@ public class HibernateCriteria {
         clients=em.createQuery(query).setParameter("name","user1").getResultList();
         clients.forEach(System.out::println);
 
+        System.out.println("=========where like find client by payment method========");
+
+        query= criteria.createQuery(Client.class);
+        from=query.from(Client.class);
+        query.select(from).where(criteria.like(from.get("paymentMethod"),"%as%"));
+        clients=em.createQuery(query).getResultList();
+        clients.forEach(System.out::println);
+
+        System.out.println("=========where between find client by id range========");
+
+        query= criteria.createQuery(Client.class);
+        from=query.from(Client.class);
+        query.select(from).where(criteria.between(from.get("id"),3L,6L));
+        clients=em.createQuery(query).getResultList();
+        clients.forEach(System.out::println);
+
 
         em.close();
 
