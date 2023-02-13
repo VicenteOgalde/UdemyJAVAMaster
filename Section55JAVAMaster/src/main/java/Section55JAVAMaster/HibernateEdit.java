@@ -23,8 +23,10 @@ public class HibernateEdit {
 
 
             em.getTransaction().begin();
-            Client c= new Client(up.getId(),name,surname,payment);
-            em.merge(c);
+            up.setName(name);
+            up.setSurname(surname);
+            up.setPaymentMethod(payment);
+            em.merge(up);
             em.getTransaction().commit();
         } catch (Exception e) {
             em.getTransaction().rollback();
