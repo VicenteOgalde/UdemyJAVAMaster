@@ -4,6 +4,8 @@ package Section55JAVAMaster.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="clients")
@@ -18,6 +20,8 @@ public class Client {
     private String paymentMethod;
     @Embedded
     private Audit audit=new Audit();
+
+    private List<Address> addresses= new ArrayList<>();
 
 
 
@@ -73,7 +77,14 @@ public class Client {
         this.paymentMethod = paymentMethod;
     }
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    public List<Address> getAddresses() {
+        return addresses;
+    }
 
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
 
     @Override
     public String toString() {

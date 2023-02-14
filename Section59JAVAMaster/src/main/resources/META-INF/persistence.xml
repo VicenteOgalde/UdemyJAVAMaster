@@ -5,6 +5,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>Section55JAVAMaster.entity.Client</class>
         <class>Section55JAVAMaster.entity.Invoice</class>
+        <class>Section55JAVAMaster.entity.Address</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:mysql://localhost:3306/udemyjava2?serverTimezone=America/Santiago"/>
