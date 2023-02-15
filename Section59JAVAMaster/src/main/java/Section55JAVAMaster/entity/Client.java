@@ -27,11 +27,14 @@ public class Client {
             joinColumns = @JoinColumn(name = "client_id"),
             inverseJoinColumns = @JoinColumn(name = "address_id"),
     uniqueConstraints = @UniqueConstraint(columnNames = {"address_id"}))
-    private List<Address> addresses= new ArrayList<>();
+    private List<Address> addresses;
 
-
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, mappedBy = "client")
+    List<Invoice> invoices;
 
     public Client() {
+        this.addresses= new ArrayList<>();
+        this.invoices=new ArrayList<>();
     }
 
     public Client(Long id, String name, String surname, String paymentMethod) {
@@ -41,6 +44,7 @@ public class Client {
     }
 
     public Client(String name, String surname) {
+        this();
         this.name = name;
         this.surname = surname;
     }
@@ -92,6 +96,26 @@ public class Client {
         this.addresses = addresses;
     }
 
+    public Audit getAudit() {
+        return audit;
+    }
+
+    public void setAudit(Audit audit) {
+        this.audit = audit;
+    }
+
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
+    }
+    public void addInvoice(Invoice i){
+        this.invoices.add(i);
+        i.setClient(this);
+    }
+
     @Override
     public String toString() {
         String c = "empty";
@@ -107,6 +131,7 @@ public class Client {
                 ", paymentMethod='" + paymentMethod + '\'' +
                 ", created at='"+c+'\''+
                 ", updated at='"+u+'\''+
+                ", updated at='"+this.invoices+'\''+
                 '}';
     }
 }

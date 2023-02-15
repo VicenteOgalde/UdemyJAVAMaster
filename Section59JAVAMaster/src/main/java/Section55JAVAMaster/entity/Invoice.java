@@ -52,4 +52,13 @@ public class Invoice {
     public void setClient(Client client) {
         this.client = client;
     }
+
+    @Override
+    public String toString() {
+        return "Invoice{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", total=" + total +
+                '}';
+    }
 }
