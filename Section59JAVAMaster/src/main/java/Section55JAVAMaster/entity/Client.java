@@ -21,6 +21,12 @@ public class Client {
     @Embedded
     private Audit audit=new Audit();
 
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinTable(name = "clients_addresses",
+            joinColumns = @JoinColumn(name = "client_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id"),
+    uniqueConstraints = @UniqueConstraint(columnNames = {"address_id"}))
     private List<Address> addresses= new ArrayList<>();
 
 
@@ -77,7 +83,7 @@ public class Client {
         this.paymentMethod = paymentMethod;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+
     public List<Address> getAddresses() {
         return addresses;
     }
