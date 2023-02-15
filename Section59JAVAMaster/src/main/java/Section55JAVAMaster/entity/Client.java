@@ -94,8 +94,12 @@ public class Client {
 
     @Override
     public String toString() {
-        String c=audit!=null?audit.getCreatedAt().toString():"empty";
-        String u=audit!=null?audit.getUpdatedAt().toString():"empty";
+        String c = "empty";
+        String u = "empty";
+        if (audit != null) {
+            c = audit.getCreatedAt() != null ? audit.getCreatedAt().toString() : "empty";
+            u = audit.getUpdatedAt() != null ? audit.getUpdatedAt().toString() : "empty";
+        }
         return "Client{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
