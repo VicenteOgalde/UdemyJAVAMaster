@@ -2,6 +2,10 @@ package Section55JAVAMaster.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 @Entity
 @Table(name="courses")
 public class Course {
@@ -10,12 +14,16 @@ public class Course {
     private Long id;
     private String title;
     private String teacher;
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students;
 
     public Course() {
 
+        this.students=new ArrayList<>();
     }
 
     public Course(String title, String teacher) {
+        this();
         this.title = title;
         this.teacher = teacher;
     }
@@ -42,6 +50,27 @@ public class Course {
 
     public void setTeacher(String teacher) {
         this.teacher = teacher;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return Objects.equals(id, course.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     @Override
