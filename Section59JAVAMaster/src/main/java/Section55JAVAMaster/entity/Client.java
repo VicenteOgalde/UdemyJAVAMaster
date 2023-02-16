@@ -32,6 +32,7 @@ public class Client {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, mappedBy = "client")
     List<Invoice> invoices;
 
+
     public Client() {
         this.addresses= new ArrayList<>();
         this.invoices=new ArrayList<>();
@@ -83,6 +84,7 @@ public class Client {
         return paymentMethod;
     }
 
+
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
@@ -108,6 +110,8 @@ public class Client {
         return invoices;
     }
 
+
+
     public void setInvoices(List<Invoice> invoices) {
         this.invoices = invoices;
     }
@@ -131,7 +135,8 @@ public class Client {
                 ", paymentMethod='" + paymentMethod + '\'' +
                 ", created at='"+c+'\''+
                 ", updated at='"+u+'\''+
-                ", updated at='"+this.invoices+'\''+
+                ", invoices='"+this.invoices+'\''+
+
                 '}';
     }
 }
