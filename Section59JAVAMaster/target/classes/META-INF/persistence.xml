@@ -7,6 +7,8 @@
         <class>Section55JAVAMaster.entity.Invoice</class>
         <class>Section55JAVAMaster.entity.Address</class>
         <class>Section55JAVAMaster.entity.DetailClient</class>
+        <class>Section55JAVAMaster.entity.Course</class>
+        <class>Section55JAVAMaster.entity.Student</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:mysql://localhost:3306/udemyjava2?serverTimezone=America/Santiago"/>
