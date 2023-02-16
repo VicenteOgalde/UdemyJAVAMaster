@@ -11,6 +11,7 @@ public class DetailClient {
     private boolean prime;
     private Long points;
 @OneToOne
+@JoinColumn(name = "client_id")
  private Client client;
 
     public DetailClient() {
