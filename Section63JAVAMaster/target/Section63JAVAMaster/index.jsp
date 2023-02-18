@@ -10,6 +10,7 @@
 <h1>Hello form EJB</h1>
 
 <h3>${greet}</h3>
+<h3>${greet2}</h3>
 
 </body>
 </html>

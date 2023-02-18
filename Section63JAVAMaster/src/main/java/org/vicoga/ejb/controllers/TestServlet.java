@@ -15,10 +15,14 @@ public class TestServlet extends HttpServlet {
 
     @EJB
     private ServiceEjb serviceEjb;
+    @EJB
+    private ServiceEjb serviceEjb2;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("2 service are equal: "+serviceEjb.equals(serviceEjb2));
         req.setAttribute("greet",serviceEjb.greet("mr X"));
+        req.setAttribute("greet2",serviceEjb2.greet("mr Z"));
         getServletContext().getRequestDispatcher("/index.jsp").forward(req,resp);
     }
 }
