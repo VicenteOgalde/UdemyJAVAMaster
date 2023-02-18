@@ -1,2 +1,3 @@
+org\vicoga\ejb\service\ServiceEjbLocal.class
 org\vicoga\ejb\controllers\TestServlet.class
 org\vicoga\ejb\service\ServiceEjb.class

@@ -3,7 +3,7 @@ package org.vicoga.ejb.service;
 import jakarta.ejb.Stateless;
 
 @Stateless
-public class ServiceEjb {
+public class ServiceEjb implements ServiceEjbLocal {
 
     private int count;
 
