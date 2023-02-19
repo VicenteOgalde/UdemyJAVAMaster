@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.vicoga.ejb.models.Product;
 import org.vicoga.ejb.service.ServiceEjb;
 import org.vicoga.ejb.service.ServiceEjbLocal;
 
@@ -35,9 +36,13 @@ public class TestServlet extends HttpServlet {
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }
+        Product p = serviceEjb.create(new Product("box"));
+        System.out.println(p);
+
         System.out.println("2 service are equal: "+serviceEjb.equals(serviceEjb2));
         req.setAttribute("greet",serviceEjb.greet("mr X"));
         req.setAttribute("greet2",serviceEjb2.greet("mr Z"));
+        req.setAttribute("products",serviceEjb.findAll());
         getServletContext().getRequestDispatcher("/index.jsp").forward(req,resp);
     }
 }
