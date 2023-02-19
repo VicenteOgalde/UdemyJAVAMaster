@@ -1,0 +1,3 @@
+org\vicoga\ejb\service\ServiceEjb.class
+org\vicoga\ejb\models\Product.class
+org\vicoga\ejb\service\ServiceEjbRemote.class

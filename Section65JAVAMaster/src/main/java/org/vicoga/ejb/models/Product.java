@@ -1,7 +1,10 @@
 package org.vicoga.ejb.models;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String name;
+    static final long serialVersionUID = 42146546L;
 
     public Product() {
     }
