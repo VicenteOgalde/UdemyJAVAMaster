@@ -1,0 +1,7 @@
+repositories\ProductRepositoryImpl.class
+repositories\CrudRepository.class
+services\ProductService.class
+models\Product.class
+ProducerEntityManager.class
+controllers\ProductController.class
+services\ProductServiceImpl.class
